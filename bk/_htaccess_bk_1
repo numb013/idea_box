@@ -1,0 +1,39 @@
+<Files ~ "^\.(htaccess|htpasswd)$">
+deny from all
+</Files>
+AuthUserFile /var/www/vhosts/training-c.co.jp/httpdocs/idea_box/.htpasswd
+AuthGroupFile /dev/null
+AuthName "Please enter your ID and password2"
+AuthType Basic
+require valid-user 
+order deny,allow
+
+
+#RemoveHandler .html
+#AddType application/x-httpd-php .html
+
+DirectoryIndex index.html index.php
+
+php_flag display_errors on
+php_flag magic_quotes_gpc off
+php_flag register_globals off
+
+php_flag session.bug_compat_warn off
+
+php_value default_charset UTF-8
+
+php_value date.timezone Asia/Tokyo
+SetEnv TZ Asia/Tokyo
+
+<Files ~ "\.tpl$">
+  deny from all 
+</Files>
+
+ErrorDocument 404 /404.html
+
+##以下はリニューアル時設定
+#order deny,allow
+#deny from all
+#allow from 183.77.226.225   # フジボウルからのアクセスを許可する
+#
+#ErrorDocument 403 http://www.fujiball.co.jp/msg/

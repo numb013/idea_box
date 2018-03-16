@@ -1,0 +1,335 @@
+body {
+	padding: 	0;
+	margin:		0;
+	overflow: hidden;
+	font-size:	10pt;
+}
+a:link {
+	color:		#369;
+}
+a:visited {
+	color:		#69C;
+}
+a:hover {
+	color:		#936;
+	text-decoration: none;
+}
+div#container {
+}
+div#header {
+	background: #8ea2ae url(../images/bg_head.jpg) 0 0 repeat-x;
+	height:			61px;
+	position:		relative;
+}
+div#menu {
+	margin:		0;
+	padding:	0;
+	height:		100%;
+	width:		160px;
+	position:	absolute;
+  left:			0;
+  top:			0;
+	overflow: auto;
+	background:	#ffffff url(../images/bg_menu.gif) 0 0 repeat-y;
+}
+div#body {
+	margin:		0 0 0 0px;
+	padding:	0;
+	height:		100%;
+	overflow:	auto;
+	background:	#e9e9e9 url(../images/bg_body.gif) 0 0 repeat-x;
+}
+
+div#bodyContainer {
+	margin:		10px;
+}
+
+div#header h1 {
+	padding: 	0;
+	margin:		0;
+	position:	absolute;
+	top:			19px;
+	left:			15px;	
+}
+div#header p {
+	padding: 	0;
+	margin:		0;
+	position: relative;
+	margin-right:	10px;
+	float:		right;
+	color:		#26A8D4;
+}
+p#user {
+	top:		30px;
+}
+p#logout {
+	top:		20px;
+}
+
+div#menu dl {
+	margin:		0;
+	padding:	5px 0;
+	background:		url(../images/menu_top.gif) 0 0 no-repeat;
+}
+div#menu dt {
+	margin:				7px 0 4px 0;
+	padding:			7px 0 7px 8px;
+	background:		url(../images/head_menu.jpg) 0 0 no-repeat;
+	color:				#FFF;
+	font-weight:	bold;
+}
+div#menu dd {
+	margin:		2px 10px;
+	padding-left:	20px;
+	background:	 	url(../images/bullet_blue.gif) left center no-repeat;
+}
+
+
+#body h2 {
+	font-size:		11pt;
+	color:				#999;
+	padding:			0 0.5em 0 0;	
+	border-bottom:	1px solid #AAA;
+	text-align:			center;			
+}
+#body h3 {
+	padding:			0 0 0 0.5em;
+	border-left:	14pt solid #8ea2ae;
+	font-size:		11pt;
+}
+#body h4 {
+	font-size:		10pt;
+	color:				#666;
+	background:		#FFF;
+	padding:			.3em;
+}
+#body .message {
+	font-size:		8pt;
+	color:				#0658B0;
+	padding:			3px 3px 3px 20px;
+	border:				#CCC;
+	background:		url(../images/icon_speaker.gif) 3px 3px no-repeat;
+}
+
+#body table.menu {
+	border-collapse: separate;
+}
+#body table.menu tr {
+	vertical-align: top;
+	font-size:			10pt;
+}
+#body table.menu td {
+	height:					180px;
+	border:					1px solid #CCC;
+	padding:				10px;
+}
+#body table.menu td img {
+	float:					right;
+	margin-top:			-35px;
+}
+#body table.menu td ul {
+	padding:				0;
+	margin:					10px 5px;
+}
+#body table.menu td li {
+	list-style:		none;
+	margin:				3px 0;
+	padding-left:		15px;
+	background:			url(../images/bullet_gray.gif) left center no-repeat;
+}
+
+#body table.form {
+	margin-left:			40px;
+	border-collapse:	collapse;
+}
+#body table.form tr,
+#body table.form th,
+#body table.form td {
+	vertical-align:	top;
+	text-align:		left;
+	font-size:		10pt;
+	padding:			3px;
+}
+#body table.form th {
+	color:				#FFF;
+	background:		#8699A7 url(../images/bg_form_th.gif) 0 0 no-repeat;
+	border:				1px solid #333;
+}
+#body table.form tbody td {
+	background:		#FFF;
+	border:				1px solid #999;
+}
+#body table.form tfoot td {
+	text-align:		right;
+	border:				0;
+}
+#body table.form em {
+	font-style:	normal;
+	font-size:	8pt;
+	color:			#990000;
+}
+#body table.form td.number {
+	text-align:		right;
+}
+#body table.no_table {
+	border-collapse:	separate;
+}
+#body table.no_table tr {
+	font-size:		10pt;
+}
+#body table.no_table td {
+	padding:			0px 0px;
+	border-right:	0px solid #CCC;
+	border-bottom:0px solid #CCC;
+}
+#body table.no_table td.status {
+	text-align:		center;
+}
+#body table.no_table td.number {
+	text-align:		right;
+}
+#body table.no_table tr.even {
+	background:		#F0F0F0;
+}
+#body table.no_table th {
+	padding:			0px;
+	font-size:		0pt;
+	color:				#FFF;
+	background:		#8ea2ae;
+	white-space: 	nowrap;
+}
+#body table.no_table th a {
+	text-decoration:	none;
+	color:				#FFF !important;
+}
+#body table.no_table th a img {
+	border:				0;
+}
+#body table.no_table button {
+	font-size:				8pt;
+	width:				60px;
+	height:				20px;
+}
+#body table.no_table tbody td {
+	background:		#FFF;
+	border:			0px;
+	vertical-align:	middle;
+}
+
+#body table.no_table2 {
+	border-collapse:	separate;
+}
+#body table.no_table2 tr {
+	font-size:		10pt;
+}
+#body table.no_table2 td {
+	padding:			0px 0px;
+	border-right:	0px solid #CCC;
+	border-bottom:0px solid #CCC;
+}
+#body table.no_table2 td.status {
+	text-align:		center;
+}
+#body table.no_table2 td.number {
+	text-align:		right;
+}
+#body table.no_table2 tr.even {
+	background:		#F0F0F0;
+}
+#body table.no_table2 th {
+	padding:			0px;
+	font-size:		0pt;
+	color:				#FFF;
+	background:		#8ea2ae;
+	white-space: 	nowrap;
+}
+#body table.no_table2 th a {
+	text-decoration:	none;
+	color:				#FFF !important;
+}
+#body table.no_table2 th a img {
+	border:				0;
+}
+#body table.no_table2 button {
+	font-size:				8pt;
+	width:				60px;
+	height:				20px;
+}
+#body input.button,
+#body button {
+	width:			120px;
+	height:			25px;
+	background:	url(../images/bg_button.gif) 0 0 no-repeat;	
+}
+#body .submit_button {
+	width:			100px;
+	height:			25px;
+	background:	url(../images/bg_submit.gif) 0 0 no-repeat;	
+}
+#body p.button {
+	text-align:	right;
+	margin-top:	-3em;
+}
+#body p.resultPage {
+	font-size:	8pt;
+	text-align:	center;
+}
+#body p.resultPage a {
+	padding:		3px;
+	border:			1px solid #CCC;
+	text-decoration:	none;
+	background:	#FFF;
+}
+#body p.resultPage a:hover {
+	border:			1px solid #936;
+	text-decoration:	none;
+	background:	#FDE;
+}
+#body p.resultPage span {
+	padding:		3px;
+	border:			1px solid #999;
+	font-weight:	bold;
+	background:	#FFF;
+}
+
+#body table.table {
+	border-collapse:	separate;
+}
+#body table.table tr {
+	font-size:		10pt;
+}
+#body table.table td {
+	padding:			3px 5px;
+	border-right:	1px solid #CCC;
+	border-bottom:1px solid #CCC;
+}
+#body table.table td.status {
+	text-align:		center;
+}
+#body table.table td.number {
+	text-align:		right;
+}
+#body table.table tr.even {
+	background:		#F0F0F0;
+}
+#body table.table th {
+	padding:			5px;
+	font-size:		8pt;
+	color:				#FFF;
+	background:		#8ea2ae;
+	white-space: 	nowrap;
+}
+#body table.table th a {
+	text-decoration:	none;
+	color:				#FFF !important;
+}
+#body table.table th a img {
+	border:				0;
+}
+#body table.table button {
+	font-size:				8pt;
+	width:				60px;
+	height:				20px;
+}
+
+

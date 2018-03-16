@@ -1,0 +1,61 @@
+body {
+	font:"‚l‚r ‚oƒSƒVƒbƒN", Osaka, "ƒqƒ‰ƒMƒmŠpƒS Pro W3", Arial, sans-serif;
+	padding: 	0;
+	margin:		0;
+	font-size:	10pt;
+	background: #7088A4 url(../images/bg_login.jpg) 0 0 no-repeat;
+	text-align:	center;
+	font-family:	'Verdana',sans-serif;
+}
+#login input.button {
+	width:			80px;
+	height:			25px;
+	background:	url(../images/bg_button.gif) 0 0 no-repeat;	
+}
+#login div.button {
+	margin-top:	1em;
+	text-align:	right;
+}
+#login div#head {
+	display:		none;
+}
+form#login_form {
+	width:			300px;
+	margin:			200px auto;
+	text-align:	left;
+}
+form#login_form th {
+	text-align:	left;
+	font-size:	10pt;
+}
+form#login_form thead th {
+	font-weight:normal;
+	font-size:	8pt;
+	background: #205171;
+	color:			#FFFFFF;
+}
+table.form {
+	border-collapse:	collapse;
+}
+table.form tr,
+table.form th,
+table.form td {
+	vertical-align:	top;
+	text-align:		left;
+	font-size:		10pt;
+	padding:			3px;
+}
+table.form th {
+	width:				25%;
+	color:				#FFF;
+	background:		#8699A7 url(../images/bg_form_th.gif) 0 0 no-repeat;
+	border:				1px solid #333;
+}
+table.form tbody td {
+	background:		#FFF;
+	border:				1px solid #999;
+}
+table.form tfoot td {
+	text-align:		right;
+	border:				0;
+}

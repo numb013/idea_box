@@ -1,0 +1,142 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+/*-------------------------------------------------
+
+	アガレスト戦記 common.css
+
+
+	
+
+--------------------------------------------------*/
+
+
+
+
+/*-------------------------  common -----------------------------------*/
+
+
+/*------ tag ------*/
+
+body{color:#000;background-color:#fff;line-height:1.7em;}
+a{color:#FF3300;} 
+a:hover{} 
+
+
+
+/*------ base layout ------*/
+
+#wrapper{text-align:center;background:url() repeat-x left top;background-color:#fff;}
+#containerWrap{background:url(../images/bg_containerWrap.png) repeat-y center top;}
+#container{background:url(../images/bg_container.png) no-repeat center top;}
+#storage{width:800px;margin:0 auto;text-align:left;background-color:;}
+
+
+/*---- header ------*/
+
+
+#header{height:230px;background:url(../images/bg_head.jpg) no-repeat left top;}
+#header #header_body{padding:10px 0 0 10px;}
+#header p{padding:5px 0 0 15px;}
+
+
+
+
+/*------ contents layout ------*/
+
+
+#main{padding:15px 10px 30px 15px;min-height:450px;_height:450px;}
+#contents{width:565px;float:left; background:url(../images/contentsBgTitle.jpg) no-repeat; padding-top:30px;}
+#contentsBox{width:545px; background:url(../images/contentsBg.jpg) repeat-y top #FEFEF5; padding:0px 10px;margin-bottom:20px;padding-bottom:10px;}
+#contentsBox p.detailTxt{background:#fff; padding:10px;border:1px #DCDCDC dashed;margin:10px;}
+#contentsBox p.name{padding:0 10px;}
+#contentsBox p.thumbNail{padding-bottom:5px;}
+
+/*------ side ------*/
+
+
+#side{width:200px;float:right;padding-bottom:3px;}
+#side_inn_1{width:100%;background:#333;}
+#side_inn_2{width:100%;background:#333;padding:3px 0 10px 0;}
+#side .bnr{text-align:center;margin-top:5px;}
+
+
+/*------ gnavi ------*/
+
+#gnav{padding-left:5px;}
+#gnav li{line-height:0px;font-size:0px;height:39px;}
+#gnav .bottom{height:40px;}
+
+
+
+
+/*------ footer ------*/
+
+#footer{background-color:#333;color:#fff;}
+#footer #footer_body{width:800px;margin:0 auto;background-color:#333;padding:15px 0;}
+#footer .nav{font-size:92%;}
+#footer .nav a{color:#fff;text-decoration:none;}
+#footer .copy{color:#fff;font-size:77%;}
+
+
+
+
+
+/* ------  clearFix -------- */
+
+
+.group:after,.box:after,.col2:after,.col3:after,.col3_set:after{
+	content: ".";
+	display: block;
+	height: 0px;
+	clear: both;
+	visibility: hidden;
+}
+.group,.box,.col2,.col3,.col3_set{
+	display: inline-block;
+	min-height: 1%;
+	/* escape MacIE5 \*/
+	display: block;
+	/* escape MacIE5 */ 
+}
+/* escape MacIE5 \*/
+* html .group,* html .box,* html .col2,* html .col3,* html .col3_set{
+	height: 1%;
+}
+/* escape MacIE5 */
+
+
+
+
+
+
+/* ------  mark -------- */
+
+
+.mk{font-family:'メイリオ',Meiryo,'ＭＳ Ｐゴシック',sans-serif;margin-right:3px;}
+
+
+/* ------  color -------- */
+
+.red{color:red;}
+.blue{color:blue;}
+strong{font-weight:bold;font-size:106%;}
+
+/* ------  pageTop -------- */
+
+.pageTop{text-align:right;font-size:92%;margin-top:25px;font-size:77%;}
+.pageTop a{padding:3px 15px;background:url(../images/icon_arrow_t.jpg) no-repeat left center;}
+
+
+/* ------  h2style -------- */
+
+
+.h2style{color:#0155AD;font-size:92%;font-weight:bold;}
+.margin-b {margin-bottom:10px;}
+.margin-t {margin-top:10px;}
+
+
+h3{background:;margin-top:10px;padding:0px 10px;width:304px;height:55px;line-height:55px;font-size:117%;color:#0155AD;font-weight:bold;}
+.h4style{font-weight:bold; font-size:106%;margin:10px 10px 0 10px;background:url(../images/line.jpg) bottom repeat-x;display:inline;}
+.marIntro{background:#000;color:#fff;padding:3px;font-weight:bold;font-size:112%;width:80px;text-align:center;margin-left:10px;}
