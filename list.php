@@ -128,6 +128,7 @@ function getSqlSelectIdea($arg_map) {
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
+  $sql.= "approval_flag = '1' AND ";
   $sql.= "delete_flag = '0' ";
   $sql.= "ORDER BY created_at DESC ";
   $sql.= "LIMIT ".intval($arg_map["limit"])." OFFSET ".intval($arg_map["offset"]);
@@ -142,6 +143,7 @@ function getSqlSelectCountIdea($arg_map) {
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
+  $sql.= "approval_flag = '1' AND ";
   $sql.= " delete_flag = '0'";
 
   return $sql;

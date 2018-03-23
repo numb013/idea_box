@@ -85,12 +85,22 @@
             <tr>
               <th width="20%">タイトル</th>
               <th width="30%">内容</th>
+              <th width="5%">承認</th>
+              <th width="5%">編集</th>
               <th width="5%">詳細</th>
             </tr>
             {foreach item="idea_map" from=$idea_list key=item_key}
               <tr>
                 <td><center>{$idea_map.title|escape}</center></td>
                 <td><center>{$idea_map.body|escape}</center></td>
+                <td><center>
+                  {if ($idea_map.approval_flag == 1)}
+                    承認済み
+                  {else}
+                    未承認
+                  {/if}
+                </center></td>
+                <td><center><a href="{$smarty.const.URL_ROOT_HTTPS}/tcm-admin/idea_edit.php?id={$idea_map.id}">編集</a></center></td>
                 <td><center><a href="{$smarty.const.URL_ROOT_HTTPS}/tcm-admin/idea_detail.php?id={$idea_map.id}">詳細</a></center></td>
               </tr>
             {/foreach}

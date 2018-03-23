@@ -62,6 +62,7 @@ if ($mode == "save") {
   $input_map["user_id"]   = rand(4, 6);
   $input_map["title"]   = $_POST["title"];
   $input_map["body"]    = $_POST["body"];
+  $input_map["approval_flag"] = 0;
   $input_map["created_at"] = date("Y/m/d H:i:s");
   $input_map["updated_at"] = date("Y/m/d H:i:s");
   $input_map["delete_flag"] = 0;
@@ -91,7 +92,7 @@ if ($mode == "save") {
     $idea_list = $dbFunctions->getListIncludeMap($sql);
 
     $smarty->assign("idea_list", $idea_list);
-    $smarty->display(TEMPLATE_DIR."/index.tpl");
+    $smarty->display(TEMPLATE_DIR."/form_completion.tpl");
     exit();
   }
 
@@ -108,6 +109,7 @@ function getSqlInsertIdea($arg_map) {
   $sql.= " user_id, ";
   $sql.= "  title, ";
   $sql.= "  body, ";
+  $sql.= "  approval_flag, ";
   $sql.= "  created_at, ";
   $sql.= "  updated_at, ";
   $sql.= "  delete_flag";
@@ -116,6 +118,7 @@ function getSqlInsertIdea($arg_map) {
   $sql.= "  ".intval($arg_map["user_id"]).", ";
   $sql.= "  '".mysql_escape_string($arg_map["title"])."', ";
   $sql.= "  '".mysql_escape_string($arg_map["body"])."', ";
+  $sql.= "  '".intval($arg_map["approval_flag"])."', ";
   $sql.= "  '".mysql_escape_string($arg_map["created_at"])."', ";
   $sql.= "  '".mysql_escape_string($arg_map["updated_at"])."', ";
   $sql.= "  ".intval($arg_map["delete_flag"]);
@@ -134,7 +137,8 @@ function getSqlSelectIdea($arg_map){
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
-  $sql.= "delete_flag = '0' ";
+  $sql.= "approval_flag = '1' AND";
+  $sql.= " delete_flag = '0' ";
   $sql.= "ORDER BY created_at DESC ";
   $sql.= "LIMIT ".intval($arg_map["limit"]);
 

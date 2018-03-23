@@ -21,7 +21,7 @@ if ($mode == "login") {
     $_SESSION["a"]["login_flag"] = "1";
     $_SESSION["a"]["login_id"]   = $input_map["login_id"];
 
-    header("Location: ".URL_ROOT_HTTPS."/tcm-admin/item_list.php");
+    header("Location: ".URL_ROOT_HTTPS."/tcm-admin/idea_list.php");
     exit();
 
   } else {

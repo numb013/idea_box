@@ -104,6 +104,7 @@ function getSqlSelectIdea($arg_map) {
   $sql.= "  user_id, ";
   $sql.= "  title, ";
   $sql.= "  body, ";
+  $sql.= "  approval_flag, ";
   $sql.= "  created_at, ";
   $sql.= "  updated_at, ";
   $sql.= "  delete_flag ";

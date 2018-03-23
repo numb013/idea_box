@@ -120,6 +120,10 @@ $smarty->assign("paging_link", $paging_link);
 $count_idea = $util->getPagingInfo($map["record_count"], $page, 25);
 $smarty->assign("count_idea", $count_idea);
 
+$smarty->assign('approval', array(
+       0 => '非承認',
+       1 => '承認済み'));
+
 // リストに表示するためアサイン
 $smarty->assign("idea_list", $idea_list);
 $smarty->assign("page", $page);
@@ -161,6 +165,7 @@ function getSqlSelectIdea($arg_map) {
   $sql.= "  user_id, ";
   $sql.= "  title, ";
   $sql.= "  body, ";
+  $sql.= "  approval_flag, ";
   $sql.= "  created_at, ";
   $sql.= "  updated_at, ";
   $sql.= "  delete_flag ";

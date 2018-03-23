@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-16 13:57:00
+<?php /* Smarty version 2.6.9, created on 2018-03-23 14:14:13
          compiled from /var/www/html/data/idea_box/templates/list.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/list.tpl', 43, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/list.tpl', 46, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/list.tpl', 47, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/list.tpl', 42, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/list.tpl', 45, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/list.tpl', 46, false),)), $this); ?>
 <!DOCTYPE HTML>
 <!--
   Massively by HTML5 UP
@@ -38,7 +38,6 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/
 /list.php">アイデア一覧</a></li>
             </ul>
           </nav>
-
 
 
         <!-- Footer -->

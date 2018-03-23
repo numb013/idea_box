@@ -1,41 +1,53 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<title>メーリングリスト登録フォーム</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="robots" content="noindex,nofollow,noarchive">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<!DOCTYPE HTML>
+<!--
+  Massively by HTML5 UP
+  html5up.net | @ajlkn
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+  <head>
+    <title>Massively by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="./css/main.css" />
+    <noscript><link rel="stylesheet" href="./css/noscript.css" /></noscript>
+  </head>
 
-<link rel="stylesheet" type="text/css" href="./css/jquery.mobile-1.1.2.css" />
-<link rel="stylesheet" type="text/css" href="./css/jqm-datebox.min.css" />
-<link rel="stylesheet" type="text/css" href="./css/modal.css" />
-<link rel="stylesheet" type="text/css" href="./css/modal-multi.css" />
-<link rel="apple-touch-icon" href="./css/images/fb_mark.png">
-<script type="text/javascript" src="./js/jquery-1.7.1.min.js"></script>
-<script type="text/javascript" src="./js/jquery.mobile-1.1.0.min.js"></script>
-<script type="text/javascript" src="./js/jqm-datebox.core.min.js"></script>
-<script type="text/javascript" src="./js/jqm-datebox.mode.calbox.min.js"></script>
-<script type="text/javascript" src="./js/jqm-datebox.mode.datebox.min.js"></script>
-<script type="text/javascript" src="./js/jqm-datebox.mode.flipbox.min.js"></script>
-<script type="text/javascript" src="./js/modal.js"></script>
-<script type="text/javascript" src="./js/modal-multi.js"></script>
-<script src="./js/jquery.mobile.datebox.i8n.jp.js"></script>
-<script src="./js/late_text.js"></script>
-<script src="./js/early_radio.js"></script>
-</head>
-<body>
-  <div id="home" data-role="page">
-  <div data-role="header">
-    <h1>メーリングリスト登録フォーム</h1>
-  </div><!-- /header -->
-  <div data-role="content">	
+<body class="is-loading">
 
-  <h3>送信いたしました。</h3>
-  <p class="message">メールアドレスに内容が送信されます。</p>
-  <a href="{$smarty.const.URL_ROOT_HTTPS}/index.php" data-ajax="false">トップページに戻る</a>
-  </div></div>
+    <!-- Wrapper -->
+      <div id="wrapper" class="fade-in">
+        <!-- Header -->
+          <header id="header">
+            <a href="index.html" class="logo">IDEA BOX</a>
+          </header>
 
-  </div><!-- /content -->
-</div><!-- /page -->
-</body>
+          <nav id="nav">
+            <ul class="links">
+              <li><a href="{$smarty.const.URL_ROOT_HTTPS}/index.php">投稿ページ</a></li>
+              <li><a href="{$smarty.const.URL_ROOT_HTTPS}/list.php">アイデア一覧</a></li>
+            </ul>
+          </nav>
+        <!-- Footer -->
+          <footer id="idea_post">
+            <section class="split contact">
+              <section class="alt">
+                <h2 style="border-bottom: 1px solid #717981;">アイデア投稿ありがとうございます！！</h2>
+                <p style="font-size: 20px;margin-top:15px;line-height: 36px;">＊不適切な内容ではないか確認後一覧に反映したします。</p>
+              </section>
+            </section>
+          </footer>
+        <!-- Copyright -->
+          <div id="copyright">
+            <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+          </div>
+      </div>
+    <!-- Scripts -->
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.scrollex.min.js"></script>
+    <script type="text/javascript" src="./js/jquery.scrolly.min.js"></script>
+    <script type="text/javascript" src="./js/skel.min.js"></script>
+    <script type="text/javascript" src="./js/util.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+  </body>
 </html>
