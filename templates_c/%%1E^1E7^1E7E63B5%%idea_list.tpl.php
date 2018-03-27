@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-27 16:51:57
+<?php /* Smarty version 2.6.9, created on 2018-03-27 19:10:34
          compiled from /var/www/html/data/idea_box/templates/admin/idea_list.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', '/var/www/html/data/idea_box/templates/admin/idea_list.tpl', 37, false),array('modifier', 'escape', '/var/www/html/data/idea_box/templates/admin/idea_list.tpl', 43, false),)), $this); ?>

@@ -5,7 +5,13 @@
   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-{include file="_header.tpl"}
+  <head>
+    <title>Massively by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="./css/idea_main.css" />
+    <noscript><link rel="stylesheet" href="./css/noscript.css" /></noscript>
+  </head>
 <body class="is-loading">
     <!-- Wrapper -->
       <div id="wrapper" class="fade-in">
@@ -13,8 +19,13 @@
           <header id="header">
             <a href="index.html" class="logo">IDEA BOX</a>
           </header>
-
-        {include file="_menu.tpl"}
+          <!-- Nav -->
+            <nav id="nav">
+              <ul class="links">
+                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_top.php">投稿ページ</a></li>
+                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_list.php">アイデア一覧</a></li>
+              </ul>
+            </nav>
         <!-- Footer -->
           <footer id="idea_post">
             <section class="split contact">

@@ -1,21 +1,12 @@
 <?php
 
-
 ini_set( 'display_errors', 1 );
 ini_set( 'error_reporting', E_ALL );
-
 error_reporting(E_ALL & ~E_NOTICE);
-
 require_once("tcm-admin/_module/requires.php");
-
-
-
 mb_language("Japanese");
 mb_internal_encoding("utf-8");
-
 session_start();
-
-
 
 /**-------------------------------------------------------------------------------------------------
   初期処理
@@ -26,11 +17,6 @@ $smarty      = new ChildSmarty();
 $util        = new Util();
 $checkUtil   = new CheckUtil();   // チェック関数で
 $dbFunctions = new DBFunctions();
-
-
-
-
-
 
 /**-------------------------------------------------------------------------------------------------
   リクエストより必要データ取得 & バリデーション

@@ -86,7 +86,7 @@ if ($mode == "save") {
     $idea_list = $dbFunctions->getListIncludeMap($sql);
 
     $smarty->assign("idea_list", $idea_list);
-    $smarty->display(TEMPLATE_DIR."/form_completion.tpl");
+    $smarty->display(TEMPLATE_DIR."/idea_completion.tpl");
     exit();
   }
 

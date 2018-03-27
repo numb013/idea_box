@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-27 16:46:11
+<?php /* Smarty version 2.6.9, created on 2018-03-27 19:10:20
          compiled from /var/www/html/data/idea_box/templates/form_completion.tpl */ ?>
 <!DOCTYPE HTML>
 <!--
