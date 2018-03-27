@@ -30,7 +30,7 @@
               </tr>
             </table>
           </form>
-        <p><a href="{$smarty.const.URL_ROOT_HTTPS}/tcm-admin/item_list.php?page={$page|escape}">戻る</a></p>
+        <p><a href="{$smarty.const.URL_ROOT_HTTPS}/tcm-admin/idea_list.php?page={$page|escape}">戻る</a></p>
       </div>
       <br>
       <br>

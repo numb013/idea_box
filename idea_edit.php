@@ -1,12 +1,12 @@
 <?php
-
 ini_set( 'display_errors', 1 );
 ini_set( 'error_reporting', E_ALL );
 
 
-error_reporting(E_ALL & ~E_NOTICE);
+//error_reporting(E_ALL & ~E_NOTICE);
 
 require_once("tcm-admin/_module/requires.php");
+
 
 mb_language("Japanese");
 mb_internal_encoding("utf-8");
@@ -28,7 +28,6 @@ $dbFunctions = new DBFunctions();
 
 
 
-
 /**-------------------------------------------------------------------------------------------------
   リクエストより必要データ取得 & バリデーション
 --------------------------------------------------------------------------------------------------*/
@@ -43,21 +42,21 @@ if (strlen($_POST["mode"])) {  // postデータを$modeに受け取る
   メイン処理
 --------------------------------------------------------------------------------------------------*/
 
-if ($mode == "save") {
+if ($mode == "edit") {
 /**-----------------------------------------------------------------------------------------------
   登録
 ------------------------------------------------------------------------------------------------*/
 
-  //$post_key         = $_POST["post_key"];
-  // $input_map        = $_SESSION["input_map"];
-  // $_SESSION["mode"] = $mode;
+  $user_map["shain_id"] = $_SESSION["login_map"]["shain_id"];
+  // 戻った時に入力情報をセッションから取得
+  $input_map = $_SESSION["input_map"];
+  $smarty->assign("user_map", $user_map);
+  $smarty->assign("input_map", $input_map);
 
   $input_map            = null;
-  $input_map["user_id"]   = rand(4, 6);
+  $input_map["id"]   = $_POST["id"];
   $input_map["title"]   = $_POST["title"];
   $input_map["body"]    = $_POST["body"];
-  $input_map["approval_flag"] = 0;
-  $input_map["created_at"] = date("Y/m/d H:i:s");
   $input_map["updated_at"] = date("Y/m/d H:i:s");
   $input_map["delete_flag"] = 0;
 
@@ -78,7 +77,7 @@ if ($mode == "save") {
 
   } else {
     $arg_map  = $input_map;
-    $sql = getSqlInsertIdea($arg_map);
+    $sql = getSqlUpdateIdea($arg_map);
     $dbFunctions->mysql_query($sql);
 
     $arg_map["limit"]  = 5;
@@ -86,9 +85,25 @@ if ($mode == "save") {
     $idea_list = $dbFunctions->getListIncludeMap($sql);
 
     $smarty->assign("idea_list", $idea_list);
-    $smarty->display(TEMPLATE_DIR."/form_completion.tpl");
+    $smarty->display(TEMPLATE_DIR."/idea_top.tpl");
     exit();
   }
+
+} else {
+
+
+  $arg_map["id"]  = $_GET["id"];
+  $sql = getSqlSelectSinglIdea($arg_map);
+  $idea_map = $dbFunctions->getListIncludeMap($sql);
+  $idea_map = $idea_map[0];
+
+
+
+
+  $smarty->assign("idea_map", $idea_map);
+  $smarty->display(TEMPLATE_DIR."/idea_edit.tpl");
+  exit();
+
 
 }
 
@@ -96,31 +111,6 @@ if ($mode == "save") {
 /**-------------------------------------------------------------------------------------------------
   SQL
 --------------------------------------------------------------------------------------------------*/
-
-function getSqlInsertIdea($arg_map) {
-  $sql = "";
-  $sql.= "INSERT INTO ideas( ";
-  $sql.= " user_id, ";
-  $sql.= "  title, ";
-  $sql.= "  body, ";
-  $sql.= "  approval_flag, ";
-  $sql.= "  created_at, ";
-  $sql.= "  updated_at, ";
-  $sql.= "  delete_flag";
-  $sql.= ") ";
-  $sql.= "VALUES ( ";
-  $sql.= "  ".intval($arg_map["user_id"]).", ";
-  $sql.= "  '".mysql_escape_string($arg_map["title"])."', ";
-  $sql.= "  '".mysql_escape_string($arg_map["body"])."', ";
-  $sql.= "  '".intval($arg_map["approval_flag"])."', ";
-  $sql.= "  '".mysql_escape_string($arg_map["created_at"])."', ";
-  $sql.= "  '".mysql_escape_string($arg_map["updated_at"])."', ";
-  $sql.= "  ".intval($arg_map["delete_flag"]);
-  $sql.= ")";
-
-  return $sql;
-}
-
 function getSqlSelectIdea($arg_map){
   $sql = "";
   $sql.= "SELECT ";
@@ -131,8 +121,7 @@ function getSqlSelectIdea($arg_map){
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
-  $sql.= "approval_flag = '1' AND";
-  $sql.= " delete_flag = '0' ";
+  $sql.= "delete_flag = '0' ";
   $sql.= "ORDER BY created_at DESC ";
   $sql.= "LIMIT ".intval($arg_map["limit"]);
 
@@ -159,6 +148,37 @@ function input_check($input_map) {
     return "";
   }
 }
+
+
+function getSqlSelectSinglIdea($arg_map) {
+  $sql = "";
+  $sql.= "SELECT ";
+  $sql.= "id,";
+  $sql.= "user_id,";
+  $sql.= "title,";
+  $sql.= "body, ";
+  $sql.= "created_at ";
+  $sql.= "FROM ";
+  $sql.= "ideas ";
+  $sql.= "WHERE ";
+  $sql.= "id = ".$arg_map["id"]." AND ";
+  $sql.= "delete_flag = '0' ";
+  $sql.= "ORDER BY created_at DESC ";
+  return $sql;
+}
+
+function getSqlUpdateIdea($arg_map) {
+  $sql = "";
+  $sql.= "UPDATE ideas SET ";
+  $sql.= "  title = '".$arg_map["title"]."'  ,";
+  $sql.= "  body = '".$arg_map["body"]."'  ,";
+  $sql.= "  updated_at = '".mysql_escape_string($arg_map["updated_at"])."'  ";
+  $sql.= "WHERE ";
+  $sql.= "  id = ".intval($arg_map["id"])." AND ";
+  $sql.= "  delete_flag = '0'";
+  return $sql;
+}
+
 
 
 ?>

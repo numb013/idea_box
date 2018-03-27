@@ -19,8 +19,19 @@
           <footer id="idea_post">
             <section class="split contact">
               <section class="alt">
-                <h2 style="border-bottom: 1px solid #717981;">アイデア投稿ありがとうございます！！</h2>
-                <p style="font-size: 20px;margin-top:15px;line-height: 36px;">＊不適切な内容ではないか確認後一覧に反映したします。</p>
+                <form method="post" action="{$smarty.const.URL_ROOT_HTTPS}/idea_edit.php" data-ajax="false">
+                  <div class="field">
+                    <label for="name">タイトル</label>
+                    <input type="text" name="title" value="{$idea_map.title|escape}">
+                  </div>
+                  <div class="field">
+                    <label for="message">内容・説明</label>
+                    <textarea cols="27" rows="10" name="body">{$idea_map.body|escape}</textarea>
+                  </div>
+                  <input type="hidden" name="id" value="{$idea_map.id|escape}">
+                  <input type="hidden" value="edit" name="mode">
+                  <input type="submit" value="編集する" />
+                </form>
               </section>
             </section>
           </footer>
@@ -29,6 +40,7 @@
             <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
           </div>
       </div>
+
     <!-- Scripts -->
     <script type="text/javascript" src="./js/jquery.min.js"></script>
     <script type="text/javascript" src="./js/jquery.scrollex.min.js"></script>

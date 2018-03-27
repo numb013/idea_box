@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-23 14:28:36
+<?php /* Smarty version 2.6.9, created on 2018-03-27 16:46:11
          compiled from /var/www/html/data/idea_box/templates/form_completion.tpl */ ?>
 <!DOCTYPE HTML>
 <!--
@@ -7,16 +7,12 @@
   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-  <head>
-    <title>Massively by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="./css/main.css" />
-    <noscript><link rel="stylesheet" href="./css/noscript.css" /></noscript>
-  </head>
-
+<?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "_header.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
 <body class="is-loading">
-
     <!-- Wrapper -->
       <div id="wrapper" class="fade-in">
         <!-- Header -->
@@ -24,14 +20,11 @@
             <a href="index.html" class="logo">IDEA BOX</a>
           </header>
 
-          <nav id="nav">
-            <ul class="links">
-              <li><a href="<?php echo @URL_ROOT_HTTPS; ?>
-/index.php">投稿ページ</a></li>
-              <li><a href="<?php echo @URL_ROOT_HTTPS; ?>
-/list.php">アイデア一覧</a></li>
-            </ul>
-          </nav>
+        <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "_menu.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
         <!-- Footer -->
           <footer id="idea_post">
             <section class="split contact">

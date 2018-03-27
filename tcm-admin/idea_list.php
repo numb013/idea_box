@@ -8,13 +8,9 @@ error_reporting(E_ALL & ~E_NOTICE);
 
 require_once("./_module/requires.php");
 require_once("./login_check.php");
-require_once("./_define/TableCodeDef.php");  // テーブルID
-require_once("./_define/TrainingCodeDef.php");  // 研修コード
-require_once("./_define/StatusTypeDef.php");//ステータス
 
 mb_language("Japanese");
 mb_internal_encoding("UTF-8");
-
 session_start();
 
 /**-------------------------------------------------------------------------------------------------
@@ -22,20 +18,8 @@ session_start();
 --------------------------------------------------------------------------------------------------*/
 
 $smarty = new ChildSmarty();
-
 $util = new Util();
-
 $dbFunctions = new DBFunctions();
-
-$tablecodeDef = new TableCodeDef();
-$smarty->assign("tablecodeDef", $tablecodeDef);
-
-$statustypeDef = new StatusTypeDef();
-$smarty->assign("statustypeDef", $statustypeDef);
-
-$trainingcodeDef = new TrainingCodeDef();
-$smarty->assign("trainingcodeDef", $trainingcodeDef);
-
 
 
 /**-------------------------------------------------------------------------------------------------
@@ -79,15 +63,17 @@ if (strlen($page) >= 9 ) {
   メイン処理
 --------------------------------------------------------------------------------------------------*/
 $search_flag = $_POST["search_flag"];
-
 if ($search_flag == "1") {
-  $input_map["user_id"]      = $_POST["user_id"]; 
+  $input_map["user_id"]      = $_POST["shain_id"]; 
   $input_map["created_at_1"] = $_POST["created_at_1"]; 
   $input_map["created_at_2"] = $_POST["created_at_2"]; 
 
   $_SESSION["user_id"]      = $_POST["user_id"]; 
   $_SESSION["created_at_1"] = $_POST["created_at_1"]; 
   $_SESSION["created_at_2"] = $_POST["created_at_2"]; 
+
+
+$smarty->assign('select', $_POST["shain_id"]);
 } else {
   $input_map["user_id"]      = $_SESSION["user_id"]; 
   $input_map["created_at_1"] = $_SESSION["created_at_1"]; 
@@ -109,6 +95,7 @@ $idea_list = $dbFunctions->getListIncludeMap($sql);
 $arg_map = $input_map;
 $sql = getSqlSelectCountIdea($arg_map);
 $map = $dbFunctions->getMap($sql);
+
 // 一件もデータがない時にメッセージ表示するためにアサイン
 $smarty->assign("map", $map);
 
@@ -120,21 +107,46 @@ $smarty->assign("paging_link", $paging_link);
 $count_idea = $util->getPagingInfo($map["record_count"], $page, 25);
 $smarty->assign("count_idea", $count_idea);
 
+$sql = getSqlMsShain();
+$ms_shain = $dbFunctions->getListIncludeMap($sql);
+
+
+
+foreach ($ms_shain as $key => $value) {
+  $shain_arry[null] = '選択してください';
+  $shain_arry[$value['shain_id']] = $value['myoji'].$value['namae'];
+}
+
+$smarty->assign('shain_arry', $shain_arry);
+
+
 $smarty->assign('approval', array(
        0 => '非承認',
        1 => '承認済み'));
 
 // リストに表示するためアサイン
+$smarty->assign("ms_shain", $ms_shain);
 $smarty->assign("idea_list", $idea_list);
 $smarty->assign("page", $page);
 $smarty->display(TEMPLATE_DIR."/admin/idea_list.tpl");
 exit();
 
-
-
 /**-------------------------------------------------------------------------------------------------
   SQL文
 --------------------------------------------------------------------------------------------------*/
+
+
+function getSqlMsShain() {
+  $sql = "";
+  $sql.= "SELECT ";
+  $sql.= "shain_id, ";
+  $sql.= "myoji, ";
+  $sql.= "namae ";
+  $sql.= "FROM ";
+  $sql.= "ms_shain ";
+  $sql.= " ORDER BY insert_datetime DESC ";
+  return $sql;
+}
 
 function getSqlSelectCountIdea($arg_map) {
   $sql = "";
