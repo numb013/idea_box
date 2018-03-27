@@ -103,9 +103,11 @@ if ($_GET['id']) {
     $input_map["id"]   = $_POST["id"];
     $input_map["title"]   = $_POST["title"];
     $input_map["body"]    = $_POST["body"];
-    $input_map["approval_flag"]    = $_POST["approval_flag"];
+    $input_map["approval_flag"] = $_POST["approval_flag"];
     $input_map["updated_at"] = date("Y/m/d H:i:s");
     $input_map["delete_flag"] = 0;
+
+
 
     $arg_map  = $input_map;
     $sql = getSqlUpdateIdea($arg_map);

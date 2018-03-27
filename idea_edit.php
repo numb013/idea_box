@@ -57,6 +57,7 @@ if ($mode == "edit") {
   $input_map["id"]   = $_POST["id"];
   $input_map["title"]   = $_POST["title"];
   $input_map["body"]    = $_POST["body"];
+  $input_map["approval_flag"]    = $_POST["approval_flag"];
   $input_map["updated_at"] = date("Y/m/d H:i:s");
   $input_map["delete_flag"] = 0;
 
@@ -97,7 +98,9 @@ if ($mode == "edit") {
   $idea_map = $dbFunctions->getListIncludeMap($sql);
   $idea_map = $idea_map[0];
 
-
+    $smarty->assign('approval', array(
+           0 => '非承認',
+           1 => '承認済み'));
 
 
   $smarty->assign("idea_map", $idea_map);
@@ -157,6 +160,7 @@ function getSqlSelectSinglIdea($arg_map) {
   $sql.= "user_id,";
   $sql.= "title,";
   $sql.= "body, ";
+  $sql.= "  approval_flag, ";
   $sql.= "created_at ";
   $sql.= "FROM ";
   $sql.= "ideas ";
@@ -172,6 +176,7 @@ function getSqlUpdateIdea($arg_map) {
   $sql.= "UPDATE ideas SET ";
   $sql.= "  title = '".$arg_map["title"]."'  ,";
   $sql.= "  body = '".$arg_map["body"]."'  ,";
+  $sql.= "  approval_flag = '".$arg_map["approval_flag"]."'  ,";
   $sql.= "  updated_at = '".mysql_escape_string($arg_map["updated_at"])."'  ";
   $sql.= "WHERE ";
   $sql.= "  id = ".intval($arg_map["id"])." AND ";

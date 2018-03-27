@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-27 16:46:07
+<?php /* Smarty version 2.6.9, created on 2018-03-27 19:56:05
          compiled from /var/www/html/data/idea_box/templates/idea_top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_top.tpl', 26, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_top.tpl', 49, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_top.tpl', 50, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_top.tpl', 38, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_top.tpl', 61, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_top.tpl', 62, false),)), $this); ?>
 <!DOCTYPE HTML>
 <!--
   Massively by HTML5 UP
@@ -9,11 +9,13 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/
   Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
-<?php $_smarty_tpl_vars = $this->_tpl_vars;
-$this->_smarty_include(array('smarty_include_tpl_file' => "_header.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
+  <head>
+    <title>Massively by HTML5 UP</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="./css/idea_main.css" />
+    <noscript><link rel="stylesheet" href="./css/noscript.css" /></noscript>
+  </head>
 <body class="is-loading">
     <!-- Wrapper -->
       <div id="wrapper" class="fade-in">
@@ -21,12 +23,17 @@ unset($_smarty_tpl_vars);
           <header id="header">
             <a href="index.html" class="logo">IDEA BOX</a>
           </header>
-
-        <?php $_smarty_tpl_vars = $this->_tpl_vars;
-$this->_smarty_include(array('smarty_include_tpl_file' => "_menu.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
+          <!-- Nav -->
+            <nav id="nav">
+              <ul class="links">
+                <li class='active'><a href="<?php echo @URL_ROOT_HTTPS; ?>
+/idea_top.php">投稿ページ</a></li>
+                <li><a href="<?php echo @URL_ROOT_HTTPS; ?>
+/idea_list.php">アイデア一覧</a></li>
+                <li><a href="<?php echo @URL_ROOT_HTTPS; ?>
+/idea_admin.php">管理画面</a></li>
+              </ul>
+            </nav>
 
         <!-- Footer -->
           <div id="idea_post">
@@ -37,7 +44,7 @@ $this->_tpl_vars = $_smarty_tpl_vars;
 unset($_smarty_tpl_vars);
  ?>
               <form method="post" action="<?php echo @URL_ROOT_HTTPS; ?>
-/form_completion.php" data-ajax="false">
+/idea_completion.php" data-ajax="false">
                 <div class="field">
                   <label for="name">タイトル</label>
                   <input type="text" name="title" value="<?php echo ((is_array($_tmp=$this->_tpl_vars['input_map']['title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>

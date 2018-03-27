@@ -6,12 +6,14 @@ ini_set( 'error_reporting', E_ALL );
 
 error_reporting(E_ALL & ~E_NOTICE);
 
-require_once("./_module/requires.php");
-require_once("./login_check.php");
+require_once("tcm-admin/_module/requires.php");
 
 mb_language("Japanese");
-mb_internal_encoding("UTF-8");
+mb_internal_encoding("utf-8");
+
 session_start();
+
+
 
 /**-------------------------------------------------------------------------------------------------
   初期処理
@@ -25,9 +27,46 @@ $dbFunctions = new DBFunctions();
 
 
 
+
 /**-------------------------------------------------------------------------------------------------
   リクエストより必要データ取得 & バリデーション
 --------------------------------------------------------------------------------------------------*/
+
+$mode = $_POST["mode"];   // postデータを$modeに受け取る
+
+
+
+/**-------------------------------------------------------------------------------------------------
+  メイン処理
+--------------------------------------------------------------------------------------------------*/
+
+if ($mode == "back") {
+
+
+
+/**-----------------------------------------------------------------------------------------------
+  戻る
+------------------------------------------------------------------------------------------------*/
+
+  // 戻った時に入力情報をセッションから取得
+
+  $user_map["shain_id"] = $_SESSION["login_map"]["shain_id"];
+  // 戻った時に入力情報をセッションから取得
+  $input_map = $_SESSION["input_map"];
+  $smarty->assign("user_map", $user_map);
+  $smarty->assign("input_map", $input_map);
+
+  $smarty->display(TEMPLATE_DIR."/idea_admin.tpl");
+  exit();
+
+} else {
+
+
+
+
+/**-----------------------------------------------------------------------------------------------
+  初期処理
+------------------------------------------------------------------------------------------------*/
 
 // ページ
 $page          = $_GET["page"];
@@ -59,8 +98,6 @@ if (strlen($page) >= 9 ) {
   $util->echoString(ページ表示できません);
   exit();
 }
-
-
 
 /**-------------------------------------------------------------------------------------------------
   メイン処理
@@ -103,7 +140,7 @@ $map = $dbFunctions->getMap($sql);
 $smarty->assign("map", $map);
 
 // ページングリンク
-$paging_link = $util->getPagingLink($map["record_count"], $page, 25, ADMIN_COUNT_LINK, URL_ROOT_HTTPS."/tcm-admin/idea_list.php", "");
+$paging_link = $util->getPagingLink($map["record_count"], $page, 25, ADMIN_COUNT_LINK, URL_ROOT_HTTPS."/idea_admin.php", "");
 $smarty->assign("paging_link", $paging_link);
 
 // x件～x件 （x件中）
@@ -127,13 +164,18 @@ $smarty->assign('approval', array(
        0 => '非承認',
        1 => '承認済み'));
 
+
+
+
+
 // リストに表示するためアサイン
 $smarty->assign("ms_shain", $ms_shain);
 $smarty->assign("idea_list", $idea_list);
 $smarty->assign("page", $page);
-$smarty->display(TEMPLATE_DIR."/admin/idea_list.tpl");
+$smarty->display(TEMPLATE_DIR."/idea_admin.tpl");
 exit();
 
+}
 /**-------------------------------------------------------------------------------------------------
   SQL文
 --------------------------------------------------------------------------------------------------*/
