@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-27 16:51:57
+<?php /* Smarty version 2.6.9, created on 2018-03-29 14:46:13
          compiled from admin/_error_msg.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'admin/_error_msg.tpl', 14, false),)), $this); ?>
@@ -11,7 +11,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', 'a
       <td width="20" style="background-color:#f7f7f7;">&nbsp;</td>
       <td width="100" valign="middle" style="background-color:#f7f7f7;">
       <img src="<?php echo @URL_ROOT_HTTPS; ?>
-/tcm-admin/_design/images/error_arrow.gif" style="padding-left:30px; padding-right:40px; padding-top:10px; padding-bottom:10px;"/>
+/admin/_design/images/error_arrow.gif" style="padding-left:30px; padding-right:40px; padding-top:10px; padding-bottom:10px;"/>
       </td>
       <td style="background-color:#f7f7f7; color:#FF0000; padding-top:10px; padding-bottom:10px;">
       <p class="error">
