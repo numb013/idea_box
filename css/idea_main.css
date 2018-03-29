@@ -2962,4 +2962,11 @@ border-bottom: 1px solid #dedede;
     color: #b70000;
 }
 
+.search_box {
+	padding: 25px 50px;
+}
 
+.datepicker {
+	display: -webkit-inline-box !important;
+	width: 30% !important;
+}

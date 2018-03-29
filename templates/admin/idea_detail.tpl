@@ -24,8 +24,8 @@
                 <tr>
                   <td width="10%"><center>{$idea_map.title|escape}</center></td>
                   <td width="10%"><center>{$idea_map.body|escape}</center></td>
-                  <td width="10%"><center>{$idea_map.created_at|escape|date_format:"%Y-%m-%d"}</center></td>
-                  <td width="10%"><center>{$idea_map.user_id|escape}</center></td>
+                  <td width="10%"><center>{$idea_map.insert_datetime|escape|date_format:"%Y-%m-%d"}</center></td>
+                  <td width="10%"><center>{$idea_map.shain_id|escape}</center></td>
                 </tr>
               </tr>
             </table>

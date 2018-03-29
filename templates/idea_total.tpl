@@ -37,7 +37,7 @@
               <ul class="links">
                 <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_top.php">投稿ページ</a></li>
                 <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_list.php">アイデア一覧</a></li>
-                <li class='active'><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_admin.php">管理画面</a></li>
+                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_admin.php">管理画面</a></li>
                 <li class='active'><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_total.php">集計</a></li>
               </ul>
             </nav>
@@ -45,17 +45,11 @@
           <footer id="idea_post">
             <section class="split contact">
               <section class="contact">
-                <h3>アイデア一覧検索</h3>
+                <h3>修正検索</h3>
                 <div class="search_box">
                   {include file="admin/_error_msg.tpl"}
-                  <form action="{$smarty.const.URL_ROOT_HTTPS}/idea_admin.php" method="post" enctype="multipart/form-data">
+                  <form action="{$smarty.const.URL_ROOT_HTTPS}/idea_total.php" method="post" enctype="multipart/form-data">
                     <table class="form" width="90%">
-                      <tr>
-                        <th class="ken">社員</th>
-                        <td>
-                          {html_options name='shain_id' options=$shain_arry selected=$select separator='<br />'}
-                        </td>
-                      </tr>
                       <tr>
                         <th class="ken">指定日</th>
                         <td>
@@ -73,35 +67,17 @@
                 </div>
               </section>
 
-              <div style="padding: 0px 20px;">
-                <p class="message">{$count_idea}</p>
-              </div>
-
-              {foreach item="idea_map" from=$idea_list}
+              {foreach item="shain_idea_count_map" from=$shain_idea_count}
                 <div class="list_box">
                   <a href="{$smarty.const.URL_ROOT_HTTPS}/idea_detail.php?id={$idea_map.id|escape}">
                     <section>
-                      <h3 class="under_line">・{$idea_map.title|escape}</h3>
-                      <p>{$idea_map.body|truncate:100:'...'}</p>
-                      <p class="date">{$idea_map.insert_datetime|escape|date_format:"%Y-%m-%d"}</p>   
-                        <p><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_edit.php?id={$idea_map.id|escape}">編集</a></p>
+                      <h3 class="under_line">件数:{$shain_idea_count_map.idea_count|escape} {$shain_idea_count_map.name|escape} </h3>
                     </section>
                   </a>
                 </div>
               {/foreach}
             </section>
           </footer>
-
-          <div id="main">
-          <section>
-            <footer>
-              <p class="message">{$count_idea}</p>
-              <div class="pagination">
-                <p class="resultPage">{$paging_link}</p>
-              </div>
-            </footer>
-          </section>
-          </div>
 
     <!-- Scripts -->
     <script type="text/javascript" src="./js/jquery.scrollex.min.js"></script>

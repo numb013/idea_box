@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-27 19:56:05
+<?php /* Smarty version 2.6.9, created on 2018-03-29 12:40:31
          compiled from /var/www/html/data/idea_box/templates/idea_top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_top.tpl', 38, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_top.tpl', 61, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_top.tpl', 62, false),)), $this); ?>
@@ -79,7 +79,7 @@ unset($_smarty_tpl_vars);
 </h3>
                     <p><?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['body'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 150, '...', true) : smarty_modifier_truncate($_tmp, 150, '...', true)); ?>
 </p>
-                    <p class="date"><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['idea_map']['created_at'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)))) ? $this->_run_mod_handler('date_format', true, $_tmp, "%Y-%m-%d") : smarty_modifier_date_format($_tmp, "%Y-%m-%d")); ?>
+                    <p class="date"><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['idea_map']['insert_datetime'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)))) ? $this->_run_mod_handler('date_format', true, $_tmp, "%Y-%m-%d") : smarty_modifier_date_format($_tmp, "%Y-%m-%d")); ?>
 </p>
                     <?php if ($this->_tpl_vars['idea_map']['user_id'] == '5'): ?>
                       <p><a href="<?php echo @URL_ROOT_HTTPS; ?>

@@ -7,8 +7,8 @@ define("ADMIN_LOGIN_ID", "admin");
 define("ADMIN_LOGIN_PASSWORD", "f32fdasJlteFeao39JEa");
 
 /** 1ページに表示する件数(ページング) */
-define("ADMIN_COUNT_PAGE", 10);
+define("ADMIN_COUNT_PAGE", 15);
 
 /** リンクとして表示する件数(ページング) */
-define("ADMIN_COUNT_LINK", 10);
+define("ADMIN_COUNT_LINK", 15);
 ?>

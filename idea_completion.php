@@ -53,12 +53,12 @@ if ($mode == "save") {
   // $_SESSION["mode"] = $mode;
 
   $input_map            = null;
-  $input_map["user_id"]   = rand(4, 6);
+  $input_map["shain_id"]   = rand(4, 6);
   $input_map["title"]   = $_POST["title"];
   $input_map["body"]    = $_POST["body"];
   $input_map["approval_flag"] = 0;
-  $input_map["created_at"] = date("Y/m/d H:i:s");
-  $input_map["updated_at"] = date("Y/m/d H:i:s");
+  $input_map["insert_datetime"] = date("Y/m/d H:i:s");
+  $input_map["update_datetime"] = date("Y/m/d H:i:s");
   $input_map["delete_flag"] = 0;
 
   $error_map = input_check($input_map);
@@ -100,21 +100,21 @@ if ($mode == "save") {
 function getSqlInsertIdea($arg_map) {
   $sql = "";
   $sql.= "INSERT INTO ideas( ";
-  $sql.= " user_id, ";
+  $sql.= " shain_id, ";
   $sql.= "  title, ";
   $sql.= "  body, ";
   $sql.= "  approval_flag, ";
-  $sql.= "  created_at, ";
-  $sql.= "  updated_at, ";
+  $sql.= "  insert_datetime, ";
+  $sql.= "  update_datetime, ";
   $sql.= "  delete_flag";
   $sql.= ") ";
   $sql.= "VALUES ( ";
-  $sql.= "  ".intval($arg_map["user_id"]).", ";
+  $sql.= "  ".intval($arg_map["shain_id"]).", ";
   $sql.= "  '".mysql_escape_string($arg_map["title"])."', ";
   $sql.= "  '".mysql_escape_string($arg_map["body"])."', ";
   $sql.= "  '".intval($arg_map["approval_flag"])."', ";
-  $sql.= "  '".mysql_escape_string($arg_map["created_at"])."', ";
-  $sql.= "  '".mysql_escape_string($arg_map["updated_at"])."', ";
+  $sql.= "  '".mysql_escape_string($arg_map["insert_datetime"])."', ";
+  $sql.= "  '".mysql_escape_string($arg_map["update_datetime"])."', ";
   $sql.= "  ".intval($arg_map["delete_flag"]);
   $sql.= ")";
 
@@ -125,7 +125,7 @@ function getSqlSelectIdea($arg_map){
   $sql = "";
   $sql.= "SELECT ";
   $sql.= "id,";
-  $sql.= "user_id,";
+  $sql.= "shain_id,";
   $sql.= "title,";
   $sql.= "body ";
   $sql.= "FROM ";
@@ -133,7 +133,7 @@ function getSqlSelectIdea($arg_map){
   $sql.= "WHERE ";
   $sql.= "approval_flag = '1' AND";
   $sql.= " delete_flag = '0' ";
-  $sql.= "ORDER BY created_at DESC ";
+  $sql.= "ORDER BY insert_datetime DESC ";
   $sql.= "LIMIT ".intval($arg_map["limit"]);
 
   return $sql;

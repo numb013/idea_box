@@ -42,7 +42,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/
 </h2>
                 <p style="font-size: 20px;margin-top:15px;line-height: 36px;"><?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['body'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 </p>
-                <?php if ($this->_tpl_vars['idea_map']['user_id'] == '5'): ?>
+                <?php if ($this->_tpl_vars['idea_map']['shain_id'] == '5'): ?>
                   <p><a href="<?php echo @URL_ROOT_HTTPS; ?>
 /idea_edit.php?id=<?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['id'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 ">編集</a></p>

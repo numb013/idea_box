@@ -104,7 +104,7 @@ if ($_GET['id']) {
     $input_map["title"]   = $_POST["title"];
     $input_map["body"]    = $_POST["body"];
     $input_map["approval_flag"] = $_POST["approval_flag"];
-    $input_map["updated_at"] = date("Y/m/d H:i:s");
+    $input_map["update_datetime"] = date("Y/m/d H:i:s");
     $input_map["delete_flag"] = 0;
 
 
@@ -167,18 +167,18 @@ function getSqlSelectIdeaAll($arg_map) {
   $sql = "";
   $sql.= "SELECT ";
   $sql.= "  id, ";
-  $sql.= "  user_id, ";
+  $sql.= "  shain_id, ";
   $sql.= "  title, ";
   $sql.= "  body, ";
   $sql.= "  approval_flag, ";
-  $sql.= "  created_at, ";
-  $sql.= "  updated_at, ";
+  $sql.= "  insert_datetime, ";
+  $sql.= "  update_datetime, ";
   $sql.= "  delete_flag ";
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
   $sql.= "  delete_flag = '0' ";
-  $sql.= " ORDER BY created_at DESC ";
+  $sql.= " ORDER BY insert_datetime DESC ";
   $sql.= "LIMIT ".intval($arg_map["limit"])." OFFSET ".intval($arg_map["offset"]);
 
   return $sql;
@@ -189,19 +189,19 @@ function getSqlSelectIdea($arg_map) {
   $sql = "";
   $sql.= "SELECT ";
   $sql.= "  id, ";
-  $sql.= "  user_id, ";
+  $sql.= "  shain_id, ";
   $sql.= "  title, ";
   $sql.= "  body, ";
   $sql.= "  approval_flag, ";
-  $sql.= "  created_at, ";
-  $sql.= "  updated_at, ";
+  $sql.= "  insert_datetime, ";
+  $sql.= "  update_datetime, ";
   $sql.= "  delete_flag ";
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
   $sql.= "  id = ".$arg_map["id"]. " AND";
   $sql.= "  delete_flag = '0' ";
-  $sql.= " ORDER BY created_at DESC ";
+  $sql.= " ORDER BY insert_datetime DESC ";
   $sql.= "LIMIT ".intval($arg_map["limit"])." OFFSET ".intval($arg_map["offset"]);
 
   return $sql;
@@ -214,7 +214,7 @@ function getSqlUpdateIdea($arg_map) {
   $sql.= "  title = '".$arg_map["title"]."'  ,";
   $sql.= "  body = '".$arg_map["body"]."'  ,";
   $sql.= "  approval_flag = '".$arg_map["approval_flag"]."'  ,";
-  $sql.= "  updated_at = '".mysql_escape_string($arg_map["updated_at"])."'  ";
+  $sql.= "  update_datetime = '".mysql_escape_string($arg_map["update_datetime"])."'  ";
   $sql.= "WHERE ";
   $sql.= "  id = ".intval($arg_map["id"])." AND ";
   $sql.= "  delete_flag = '0'";

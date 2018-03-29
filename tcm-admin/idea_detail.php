@@ -101,19 +101,19 @@ function getSqlSelectIdea($arg_map) {
   $sql = "";
   $sql.= "SELECT ";
   $sql.= "  id, ";
-  $sql.= "  user_id, ";
+  $sql.= "  shain_id, ";
   $sql.= "  title, ";
   $sql.= "  body, ";
   $sql.= "  approval_flag, ";
-  $sql.= "  created_at, ";
-  $sql.= "  updated_at, ";
+  $sql.= "  insert_datetime, ";
+  $sql.= "  update_datetime, ";
   $sql.= "  delete_flag ";
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
   $sql.= "  id = ".$arg_map["id"]. " AND";
   $sql.= "  delete_flag = '0' ";
-  $sql.= " ORDER BY created_at DESC ";
+  $sql.= " ORDER BY insert_datetime DESC ";
   $sql.= "LIMIT ".intval($arg_map["limit"])." OFFSET ".intval($arg_map["offset"]);
 
   return $sql;

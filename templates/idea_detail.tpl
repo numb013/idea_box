@@ -33,7 +33,7 @@
               <section class="alt">
                 <h2 style="border-bottom: 1px solid #717981;">{$idea_map.title|escape}</h2>
                 <p style="font-size: 20px;margin-top:15px;line-height: 36px;">{$idea_map.body|escape}</p>
-                {if $idea_map.user_id == "5"}
+                {if $idea_map.shain_id == "5"}
                   <p><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_edit.php?id={$idea_map.id|escape}">編集</a></p>
                 {/if}
               </section>

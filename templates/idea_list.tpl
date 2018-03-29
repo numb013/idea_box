@@ -37,7 +37,7 @@
                       <h3 class="under_line">・{$idea_map.title|escape}</h3>
                       <p>{$idea_map.body|truncate:100:'...'}</p>
                       <p class="date">{$idea_map.created_at|escape|date_format:"%Y-%m-%d"}</p>   
-                      {if $idea_map.user_id == "5"}
+                      {if $idea_map.shain_id == "5"}
                         <p><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_edit.php?id={$idea_map.id|escape}">編集</a></p>
                       {/if}                 
                     </section>

@@ -90,16 +90,16 @@ function getSqlSelectSinglIdea($arg_map) {
   $sql = "";
   $sql.= "SELECT ";
   $sql.= "id,";
-  $sql.= "user_id,";
+  $sql.= "shain_id,";
   $sql.= "title,";
   $sql.= "body, ";
-  $sql.= "created_at ";
+  $sql.= "insert_datetime ";
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
   $sql.= "id = ".$arg_map["id"]." AND ";
   $sql.= "delete_flag = '0' ";
-  $sql.= "ORDER BY created_at DESC ";
+  $sql.= "ORDER BY insert_datetime DESC ";
   return $sql;
 }
 

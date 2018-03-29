@@ -34,10 +34,10 @@
                       <center>{html_radios name='approval_flag' options=$approval selected=$idea_map.approval_flag}</center>
                     </td>
                     <td>
-                      <center>{$idea_map.created_at|escape|date_format:"%Y-%m-%d"}</center>
+                      <center>{$idea_map.insert_datetime|escape|date_format:"%Y-%m-%d"}</center>
                     </td>
                     <td>
-                      <center>{$idea_map.user_id|escape}</center>
+                      <center>{$idea_map.shain_id|escape}</center>
                     </td>
                   </tr>
                 </tr>

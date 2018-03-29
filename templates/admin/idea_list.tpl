@@ -40,8 +40,8 @@
             <tr>
               <th class = "ken">指定日</th>
               <td>
-                <input type="text"  id="datepicker1" name="created_at_1" size="13" value={$input_map.created_at_1|escape}>&nbsp;～
-                <input type="text"  id="datepicker2" name="created_at_2" size="13" value={$input_map.created_at_2|escape}>
+                <input type="text"  id="datepicker1" name="insert_datetime_1" size="13" value={$input_map.insert_datetime_1|escape}>&nbsp;～
+                <input type="text"  id="datepicker2" name="insert_datetime_2" size="13" value={$input_map.insert_datetime_2|escape}>
               </td>
             </tr>
           </table>
@@ -79,7 +79,7 @@
                     未承認
                   {/if}
                 </center></td>
-                <td><center>{$idea_map.created_at|escape}</center></td>
+                <td><center>{$idea_map.insert_datetime|escape}</center></td>
                 <td><center><a href="{$smarty.const.URL_ROOT_HTTPS}/tcm-admin/idea_edit.php?id={$idea_map.id}">編集</a></center></td>
                 <td><center><a href="{$smarty.const.URL_ROOT_HTTPS}/tcm-admin/idea_detail.php?id={$idea_map.id}">詳細</a></center></td>
               </tr>

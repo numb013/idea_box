@@ -67,20 +67,20 @@ if (strlen($page) >= 9 ) {
 --------------------------------------------------------------------------------------------------*/
 $search_flag = $_POST["search_flag"];
 if ($search_flag == "1") {
-  $input_map["user_id"]      = $_POST["shain_id"]; 
-  $input_map["created_at_1"] = $_POST["created_at_1"]; 
-  $input_map["created_at_2"] = $_POST["created_at_2"]; 
+  $input_map["shain_id"]      = $_POST["shain_id"]; 
+  $input_map["insert_datetime_1"] = $_POST["insert_datetime_1"]; 
+  $input_map["insert_datetime_2"] = $_POST["insert_datetime_2"]; 
 
-  $_SESSION["user_id"]      = $_POST["user_id"]; 
-  $_SESSION["created_at_1"] = $_POST["created_at_1"]; 
-  $_SESSION["created_at_2"] = $_POST["created_at_2"]; 
+  $_SESSION["shain_id"]      = $_POST["shain_id"]; 
+  $_SESSION["insert_datetime_1"] = $_POST["insert_datetime_1"]; 
+  $_SESSION["insert_datetime_2"] = $_POST["insert_datetime_2"]; 
 
 
 $smarty->assign('select', $_POST["shain_id"]);
 } else {
-  $input_map["user_id"]      = $_SESSION["user_id"]; 
-  $input_map["created_at_1"] = $_SESSION["created_at_1"]; 
-  $input_map["created_at_2"] = $_SESSION["created_at_2"]; 
+  $input_map["shain_id"]      = $_SESSION["shain_id"]; 
+  $input_map["insert_datetime_1"] = $_SESSION["insert_datetime_1"]; 
+  $input_map["insert_datetime_2"] = $_SESSION["insert_datetime_2"]; 
 }
 
 
@@ -158,15 +158,15 @@ function getSqlSelectCountIdea($arg_map) {
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
-  if (strlen($arg_map["user_id"])) {
-    $sql .= "  user_id ='".intval($arg_map["user_id"])."' AND ";
+  if (strlen($arg_map["shain_id"])) {
+    $sql .= "  shain_id ='".intval($arg_map["shain_id"])."' AND ";
   }
-  if (strlen($arg_map["created_at_1"]) && strlen($arg_map["created_at_2"])) {
-    $sql.= "  created_at BETWEEN '" .mysql_escape_string($arg_map["created_at_1"]). " 00:00:00' AND '".mysql_escape_string($arg_map["created_at_2"])." 23:59:59 ' AND ";
-  } else if (strlen($arg_map["created_at_1"])) {
-    $sql.= "'".mysql_escape_string($arg_map["created_at_1"]). " 00:00:00' <= created_at AND ";
-  } else if (strlen($arg_map["created_at_2"])) {
-    $sql.= " created_at <= '" . mysql_escape_string($arg_map["created_at_2"]). " 23:59:59'AND ";
+  if (strlen($arg_map["insert_datetime_1"]) && strlen($arg_map["insert_datetime_2"])) {
+    $sql.= "  insert_datetime BETWEEN '" .mysql_escape_string($arg_map["insert_datetime_1"]). " 00:00:00' AND '".mysql_escape_string($arg_map["insert_datetime_2"])." 23:59:59 ' AND ";
+  } else if (strlen($arg_map["insert_datetime_1"])) {
+    $sql.= "'".mysql_escape_string($arg_map["insert_datetime_1"]). " 00:00:00' <= insert_datetime AND ";
+  } else if (strlen($arg_map["insert_datetime_2"])) {
+    $sql.= " insert_datetime <= '" . mysql_escape_string($arg_map["insert_datetime_2"]). " 23:59:59'AND ";
   }
   $sql.= " delete_flag = '0' ";
 
@@ -177,29 +177,29 @@ function getSqlSelectIdea($arg_map) {
   $sql = "";
   $sql.= "SELECT ";
   $sql.= "  id, ";
-  $sql.= "  user_id, ";
+  $sql.= "  shain_id, ";
   $sql.= "  title, ";
   $sql.= "  body, ";
   $sql.= "  approval_flag, ";
-  $sql.= "  created_at, ";
-  $sql.= "  updated_at, ";
+  $sql.= "  insert_datetime, ";
+  $sql.= "  update_datetime, ";
   $sql.= "  delete_flag ";
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
-  if (strlen($arg_map["user_id"])) {
-    $sql .= "  user_id ='".intval($arg_map["user_id"])."' AND ";
+  if (strlen($arg_map["shain_id"])) {
+    $sql .= "  shain_id ='".intval($arg_map["shain_id"])."' AND ";
   }
 
-  if (strlen($arg_map["created_at_1"]) && strlen($arg_map["created_at_2"])) {
-    $sql.= "  created_at BETWEEN '" .mysql_escape_string($arg_map["created_at_1"]). " 00:00:00' AND '".mysql_escape_string($arg_map["created_at_2"])." 23:59:59 ' AND ";
-  } else if (strlen($arg_map["created_at_1"])) {
-    $sql.= "'".mysql_escape_string($arg_map["created_at_1"]). " 00:00:00' <= created_at AND ";
-  } else if (strlen($arg_map["created_at_2"])) {
-    $sql.= " created_at <= '" . mysql_escape_string($arg_map["created_at_2"]). " 23:59:59'AND ";
+  if (strlen($arg_map["insert_datetime_1"]) && strlen($arg_map["insert_datetime_2"])) {
+    $sql.= "  insert_datetime BETWEEN '" .mysql_escape_string($arg_map["insert_datetime_1"]). " 00:00:00' AND '".mysql_escape_string($arg_map["insert_datetime_2"])." 23:59:59 ' AND ";
+  } else if (strlen($arg_map["insert_datetime_1"])) {
+    $sql.= "'".mysql_escape_string($arg_map["insert_datetime_1"]). " 00:00:00' <= insert_datetime AND ";
+  } else if (strlen($arg_map["insert_datetime_2"])) {
+    $sql.= " insert_datetime <= '" . mysql_escape_string($arg_map["insert_datetime_2"]). " 23:59:59'AND ";
   }
   $sql.= "  delete_flag = '0' ";
-  $sql.= " ORDER BY created_at DESC ";
+  $sql.= " ORDER BY insert_datetime DESC ";
   $sql.= "LIMIT ".intval($arg_map["limit"])." OFFSET ".intval($arg_map["offset"]);
 
   return $sql;
