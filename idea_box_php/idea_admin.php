@@ -141,7 +141,7 @@ $map = $dbFunctions->getMap($sql);
 $smarty->assign("map", $map);
 
 // ページングリンク
-$paging_link = $util->getPagingLink($map["record_count"], $page, ADMIN_COUNT_PAGE, ADMIN_COUNT_LINK, URL_ROOT_HTTPS."/idea_admin.php", "");
+$paging_link = $util->getPagingLink($map["record_count"], $page, ADMIN_COUNT_PAGE, ADMIN_COUNT_LINK, URL_ROOT_HTTPS."/idea_box_php/idea_admin.php", "");
 $smarty->assign("paging_link", $paging_link);
 
 // x件～x件 （x件中）
@@ -159,12 +159,6 @@ foreach ($ms_shain as $key => $value) {
 }
 
 $smarty->assign('shain_arry', $shain_arry);
-
-
-$smarty->assign('approval', array(
-       0 => '非承認',
-       1 => '承認済み'));
-
 // リストに表示するためアサイン
 $smarty->assign("ms_shain", $ms_shain);
 $smarty->assign("idea_list", $idea_list);

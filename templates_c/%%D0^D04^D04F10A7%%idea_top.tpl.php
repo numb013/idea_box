@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-29 15:18:40
+<?php /* Smarty version 2.6.9, created on 2018-03-29 15:35:04
          compiled from /var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl', 38, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl', 61, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl', 62, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl', 34, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl', 57, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl', 58, false),)), $this); ?>
 <!DOCTYPE HTML>
 <!--
   Massively by HTML5 UP
@@ -10,11 +10,11 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/
 -->
 <html>
   <head>
-    <title>Massively by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="../css/idea_main.css" />
-    <noscript><link rel="stylesheet" href="../css/noscript.css" /></noscript>
+    <?php $_smarty_tpl_vars = $this->_tpl_vars;
+$this->_smarty_include(array('smarty_include_tpl_file' => "idea_box_tpl/_header.tpl", 'smarty_include_vars' => array()));
+$this->_tpl_vars = $_smarty_tpl_vars;
+unset($_smarty_tpl_vars);
+ ?>
   </head>
 <body class="is-loading">
     <!-- Wrapper -->
@@ -93,13 +93,5 @@ unset($_smarty_tpl_vars);
             </section>
           </div>
       </div>
-
-    <!-- Scripts -->
-    <script type="text/javascript" src="../js/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.scrollex.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.scrolly.min.js"></script>
-    <script type="text/javascript" src="../js/skel.min.js"></script>
-    <script type="text/javascript" src="../js/util.js"></script>
-<!--     <script type="text/javascript" src="./js/main.js"></script> -->
   </body>
 </html>

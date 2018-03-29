@@ -27,6 +27,7 @@
           <footer id="idea_post">
             <section class="split contact">
               <section class="alt">
+                {include file="idea_box_tpl/_error_msg.tpl"}
                 <form method="post" action="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_edit.php" data-ajax="false">
                   <div class="field">
                     <label for="name">タイトル</label>

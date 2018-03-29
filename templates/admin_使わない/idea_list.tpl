@@ -54,7 +54,6 @@
       </div>
 
       <!-- コンテンツヘッダー部  end  -->
-
         <h3>アイデア一覧</h3>
         <p class="message">{$count_idea}</p>
         <p class="resultPage">{$paging_link}</p>

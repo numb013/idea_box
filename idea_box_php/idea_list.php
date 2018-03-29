@@ -89,7 +89,7 @@ if ($mode == "back") {
   $count_item = $util->getPagingInfo($map["record_count"], $page, ADMIN_COUNT_PAGE);
   $smarty->assign("count_item", $count_item);
   // ページングリンク
-  $paging_link = $util->getPagingLink($map["record_count"], $page, ADMIN_COUNT_PAGE, ADMIN_COUNT_LINK, URL_ROOT_HTTPS."/idea_box/idea_list.php", "");
+  $paging_link = $util->getPagingLink($map["record_count"], $page, ADMIN_COUNT_PAGE, ADMIN_COUNT_LINK, URL_ROOT_HTTPS."/idea_box_php/idea_list.php", "");
 //$paging_link = $util->getPagingLink($map["record_count"], $page, ADMIN_COUNT_PAGE, ADMIN_COUNT_LINK, URL_ROOT_HTTPS."/admin/group_list.php", "");
   $smarty->assign("paging_link", $paging_link);
   $smarty->assign("idea_list", $idea_list);

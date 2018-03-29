@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-29 15:29:12
+<?php /* Smarty version 2.6.9, created on 2018-03-29 16:00:01
          compiled from /var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 38, false),array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 44, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 67, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 68, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 38, false),array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 44, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 67, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 75, false),)), $this); ?>
 <!DOCTYPE HTML>
 <!--
   Massively by HTML5 UP
@@ -88,9 +88,16 @@ unset($_smarty_tpl_vars);
 </h3>
                       <p><?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['body'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 100, '...') : smarty_modifier_truncate($_tmp, 100, '...')); ?>
 </p>
+                     <p>
+                        <?php if (( $this->_tpl_vars['idea_map']['approval_flag'] == 1 )): ?>
+                          <span style="color:#f00">●承認済み</span>
+                        <?php else: ?>
+                          ×未承認
+                        <?php endif; ?>
+                      </p>
                       <p class="date"><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['idea_map']['insert_datetime'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)))) ? $this->_run_mod_handler('date_format', true, $_tmp, "%Y-%m-%d") : smarty_modifier_date_format($_tmp, "%Y-%m-%d")); ?>
-</p>   
-                        <p><a href="<?php echo @URL_ROOT_HTTPS; ?>
+</p>
+                      <p><a href="<?php echo @URL_ROOT_HTTPS; ?>
 /idea_box_php/idea_edit.php?id=<?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['id'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 ">編集</a></p>
                     </section>
@@ -112,7 +119,6 @@ unset($_smarty_tpl_vars);
             </footer>
           </section>
           </div>
-
     <!-- Scripts -->
     <script type="text/javascript" src="../js/jquery.scrollex.min.js"></script>
     <script type="text/javascript" src="../js/jquery.scrolly.min.js"></script>

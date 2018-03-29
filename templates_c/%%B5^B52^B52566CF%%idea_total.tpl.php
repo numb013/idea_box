@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-29 15:24:40
+<?php /* Smarty version 2.6.9, created on 2018-03-29 15:35:01
          compiled from /var/www/html/data/idea_box/templates/idea_box_tpl/idea_total.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
 smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_total.tpl', 38, false),)), $this); ?>
@@ -81,12 +81,5 @@ unset($_smarty_tpl_vars);
               <?php endforeach; endif; unset($_from); ?>
             </section>
           </footer>
-
-    <!-- Scripts -->
-    <script type="text/javascript" src="../js/jquery.scrollex.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.scrolly.min.js"></script>
-    <script type="text/javascript" src="../js/skel.min.js"></script>
-    <script type="text/javascript" src="../js/util.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
   </body>
 </html>

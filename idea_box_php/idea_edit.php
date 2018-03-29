@@ -25,17 +25,13 @@ $util        = new Util();
 $checkUtil   = new CheckUtil();   // チェック関数で
 $dbFunctions = new DBFunctions();
 
-
-
-
 /**-------------------------------------------------------------------------------------------------
   リクエストより必要データ取得 & バリデーション
 --------------------------------------------------------------------------------------------------*/
-
-if (strlen($_POST["mode"])) {  // postデータを$modeに受け取る
+if (!empty($_POST["mode"])) {  // postデータを$modeに受け取る
   $mode = $_POST["mode"];
 } else {
-  $mode = $_SESSION["mode"];
+  $mode = '';
 }
 
 /**-------------------------------------------------------------------------------------------------
@@ -51,7 +47,6 @@ if ($mode == "edit") {
   // 戻った時に入力情報をセッションから取得
   $input_map = $_SESSION["input_map"];
   $smarty->assign("user_map", $user_map);
-  $smarty->assign("input_map", $input_map);
 
   $input_map            = null;
   $input_map["id"]   = $_POST["id"];
@@ -65,17 +60,13 @@ if ($mode == "edit") {
   if (is_array($error_map)) {
     // エラー表示
     $smarty->assign("error_map", $error_map);
-    // 入力情報をそのまま表示
-    $smarty->assign("input_map", $input_map);
-
-    $arg_map["limit"]  = 5;
-    $sql = getSqlSelectIdea($arg_map);
-    $idea_list = $dbFunctions->getListIncludeMap($sql);
-
-    $smarty->assign("idea_list", $idea_list);
-    $smarty->display(TEMPLATE_DIR."/idea_box_tpl/idea_top.tpl");
+    $idea_map = $_SESSION["input_map"];
+    $smarty->assign("idea_map", $idea_map);
+    $smarty->assign('approval', array(
+           0 => '非承認',
+           1 => '承認済み'));
+    $smarty->display(TEMPLATE_DIR."/idea_box_tpl/idea_edit.tpl");
     exit();
-
   } else {
     $arg_map  = $input_map;
     $sql = getSqlUpdateIdea($arg_map);
@@ -91,23 +82,19 @@ if ($mode == "edit") {
   }
 
 } else {
-
-
   $arg_map["id"]  = $_GET["id"];
   $sql = getSqlSelectSinglIdea($arg_map);
   $idea_map = $dbFunctions->getListIncludeMap($sql);
   $idea_map = $idea_map[0];
 
+    $_SESSION["input_map"] = $idea_map;
     $smarty->assign('approval', array(
            0 => '非承認',
            1 => '承認済み'));
 
-
   $smarty->assign("idea_map", $idea_map);
-  $smarty->display(TEMPLATE_DIR."/idea_edit.tpl");
+  $smarty->display(TEMPLATE_DIR."/idea_box_tpl/idea_edit.tpl");
   exit();
-
-
 }
 
 
@@ -124,6 +111,7 @@ function getSqlSelectIdea($arg_map){
   $sql.= "FROM ";
   $sql.= "ideas ";
   $sql.= "WHERE ";
+  $sql.= "approval_flag = '1' AND ";
   $sql.= "delete_flag = '0' ";
   $sql.= "ORDER BY insert_datetime DESC ";
   $sql.= "LIMIT ".intval($arg_map["limit"]);

@@ -65,8 +65,15 @@
                     <section>
                       <h3 class="under_line">・{$idea_map.title|escape}</h3>
                       <p>{$idea_map.body|truncate:100:'...'}</p>
-                      <p class="date">{$idea_map.insert_datetime|escape|date_format:"%Y-%m-%d"}</p>   
-                        <p><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_edit.php?id={$idea_map.id|escape}">編集</a></p>
+                     <p>
+                        {if ($idea_map.approval_flag == 1)}
+                          <span style="color:#f00">●承認済み</span>
+                        {else}
+                          ×未承認
+                        {/if}
+                      </p>
+                      <p class="date">{$idea_map.insert_datetime|escape|date_format:"%Y-%m-%d"}</p>
+                      <p><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_edit.php?id={$idea_map.id|escape}">編集</a></p>
                     </section>
                   </a>
                 </div>
@@ -84,7 +91,6 @@
             </footer>
           </section>
           </div>
-
     <!-- Scripts -->
     <script type="text/javascript" src="../js/jquery.scrollex.min.js"></script>
     <script type="text/javascript" src="../js/jquery.scrolly.min.js"></script>
