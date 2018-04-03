@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-27 19:49:21
+<?php /* Smarty version 2.6.9, created on 2018-04-03 18:21:47
          compiled from /var/www/html/data/idea_box/templates/idea_detail.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_detail.tpl', 34, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_detail.tpl', 35, false),)), $this); ?>
 <!DOCTYPE HTML>
 <!--
   Massively by HTML5 UP
@@ -10,11 +10,12 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/
 -->
 <html>
   <head>
-    <title>Massively by HTML5 UP</title>
+    <title>アイデアBOX｜フジボウル</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="./css/idea_main.css" />
-    <noscript><link rel="stylesheet" href="./css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="css/idea_css/idea_main.css" />
+    <link rel="stylesheet" href="css/idea_css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="js/idea_js/idea_js/jquery.min.js"></script>
   </head>
 <body class="is-loading">
     <!-- Wrapper -->
@@ -42,7 +43,7 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/
 </h2>
                 <p style="font-size: 20px;margin-top:15px;line-height: 36px;"><?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['body'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 </p>
-                <?php if ($this->_tpl_vars['idea_map']['shain_id'] == '5'): ?>
+                <?php if ($this->_tpl_vars['idea_map']['shain_id'] == $this->_tpl_vars['user_map']['shain_id']): ?>
                   <p><a href="<?php echo @URL_ROOT_HTTPS; ?>
 /idea_edit.php?id=<?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['id'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 ">編集</a></p>
@@ -52,17 +53,6 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/
             </section>
           </footer>
         <!-- Copyright -->
-          <div id="copyright">
-            <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-          </div>
       </div>
-
-    <!-- Scripts -->
-    <script type="text/javascript" src="./js/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.scrollex.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.scrolly.min.js"></script>
-    <script type="text/javascript" src="./js/skel.min.js"></script>
-    <script type="text/javascript" src="./js/util.js"></script>
-    <script type="text/javascript" src="./js/main.js"></script>
   </body>
 </html>

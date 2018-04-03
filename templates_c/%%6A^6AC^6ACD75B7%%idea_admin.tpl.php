@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-29 16:00:01
+<?php /* Smarty version 2.6.9, created on 2018-03-30 13:46:00
          compiled from /var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 38, false),array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 44, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 67, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 75, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 54, false),array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 60, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 83, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_admin.tpl', 91, false),)), $this); ?>
 <!DOCTYPE HTML>
 <!--
   Massively by HTML5 UP
@@ -10,11 +10,23 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
 -->
 <html>
   <head>
-    <?php $_smarty_tpl_vars = $this->_tpl_vars;
-$this->_smarty_include(array('smarty_include_tpl_file' => "idea_box_tpl/_header.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
+    <title>アイデアBOX｜フジボウル</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="../css/idea_css/idea_main.css" />
+    <noscript><link rel="stylesheet" href="../css/idea_css/noscript.css" /></noscript>
+    <script type="text/javascript" src="../js/idea_js/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/idea_js/jquery-ui.js"></script>
+    <script type="text/javascript" src="../js/idea_js/jquery.ui.datepicker-ja.min.js"></script>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+
+    <script>
+      $(function() {
+        $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+        $( "#datepicker1" ).datepicker();
+        $( "#datepicker2" ).datepicker();
+      });
+    </script>
   </head>
 <body class="is-loading">
     <!-- Wrapper -->

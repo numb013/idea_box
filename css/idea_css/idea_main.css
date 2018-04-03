@@ -2963,10 +2963,23 @@ border-bottom: 1px solid #dedede;
 }
 
 .search_box {
-	padding: 25px 50px;
+	padding: 25px 25px;
 }
 
+@media screen and (min-width: 736px){
+	.search_box {
+		padding: 25px 50px;
+	}
 .datepicker {
 	display: -webkit-inline-box !important;
 	width: 30% !important;
+}
+
+}
+
+@media screen and (max-width: 736px){
+	#nav ul.links li a {
+	    font-size: 11px;
+	    padding: 0 15px;
+	}
 }

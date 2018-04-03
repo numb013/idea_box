@@ -1,4 +1,4 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-27 19:22:30
+<?php /* Smarty version 2.6.9, created on 2018-04-02 17:13:37
          compiled from /var/www/html/data/idea_box/templates/idea_completion.tpl */ ?>
 <!DOCTYPE HTML>
 <!--
@@ -9,11 +9,12 @@
 <html>
 <html>
   <head>
-    <title>Massively by HTML5 UP</title>
+    <title>アイデアBOX｜フジボウル</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="./css/idea_main.css" />
-    <noscript><link rel="stylesheet" href="./css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="css/idea_css/idea_main.css" />
+    <link rel="stylesheet" href="css/idea_css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="js/idea_js/idea_js/jquery.min.js"></script>
   </head>
 <body class="is-loading">
     <!-- Wrapper -->
@@ -41,16 +42,6 @@
             </section>
           </footer>
         <!-- Copyright -->
-          <div id="copyright">
-            <ul><li>&copy; Untitled</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-          </div>
       </div>
-    <!-- Scripts -->
-    <script type="text/javascript" src="./js/jquery.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.scrollex.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.scrolly.min.js"></script>
-    <script type="text/javascript" src="./js/skel.min.js"></script>
-    <script type="text/javascript" src="./js/util.js"></script>
-    <script type="text/javascript" src="./js/main.js"></script>
   </body>
 </html>

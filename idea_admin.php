@@ -6,7 +6,9 @@ ini_set( 'error_reporting', E_ALL );
 
 error_reporting(E_ALL & ~E_NOTICE);
 
-require_once("../admin/_module/requires.php");
+// 設定に関するファイルを読み込む。
+require_once("./admin/_module/requires.php");
+// require_once("./login_check.php");
 
 mb_language("Japanese");
 mb_internal_encoding("utf-8");
@@ -56,7 +58,7 @@ if ($mode == "back") {
   $smarty->assign("user_map", $user_map);
   $smarty->assign("input_map", $input_map);
 
-  $smarty->display(TEMPLATE_DIR."/idea_box_tpl/idea_admin.tpl");
+  $smarty->display(TEMPLATE_DIR."/idea_admin.tpl");
   exit();
 
 } else {
@@ -141,7 +143,7 @@ $map = $dbFunctions->getMap($sql);
 $smarty->assign("map", $map);
 
 // ページングリンク
-$paging_link = $util->getPagingLink($map["record_count"], $page, ADMIN_COUNT_PAGE, ADMIN_COUNT_LINK, URL_ROOT_HTTPS."/idea_box_php/idea_admin.php", "");
+$paging_link = $util->getPagingLink($map["record_count"], $page, ADMIN_COUNT_PAGE, ADMIN_COUNT_LINK, URL_ROOT_HTTPS."/idea_admin.php", "");
 $smarty->assign("paging_link", $paging_link);
 
 // x件～x件 （x件中）
@@ -163,7 +165,7 @@ $smarty->assign('shain_arry', $shain_arry);
 $smarty->assign("ms_shain", $ms_shain);
 $smarty->assign("idea_list", $idea_list);
 $smarty->assign("page", $page);
-$smarty->display(TEMPLATE_DIR."/idea_box_tpl/idea_admin.tpl");
+$smarty->display(TEMPLATE_DIR."/idea_admin.tpl");
 exit();
 
 }
@@ -180,6 +182,8 @@ function getSqlMsShain() {
   $sql.= "namae ";
   $sql.= "FROM ";
   $sql.= "ms_shain ";
+  $sql.= "WHERE ";
+  $sql.= "status_id = 0";
   $sql.= " ORDER BY insert_datetime DESC ";
   return $sql;
 }

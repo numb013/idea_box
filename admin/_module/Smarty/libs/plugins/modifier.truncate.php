@@ -22,6 +22,7 @@
  * @param boolean
  * @return string
  */
+
 function smarty_modifier_truncate($string, $length = 80, $etc = '...',
                                   $break_words = false)
 {

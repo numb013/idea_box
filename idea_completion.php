@@ -6,7 +6,9 @@ ini_set( 'error_reporting', E_ALL );
 
 error_reporting(E_ALL & ~E_NOTICE);
 
-require_once("../admin/_module/requires.php");
+// 設定に関するファイルを読み込む。
+require_once("./admin/_module/requires.php");
+// require_once("./login_check.php");
 
 mb_language("Japanese");
 mb_internal_encoding("utf-8");
@@ -24,9 +26,6 @@ $smarty      = new ChildSmarty();
 $util        = new Util();
 $checkUtil   = new CheckUtil();   // チェック関数で
 $dbFunctions = new DBFunctions();
-
-
-
 
 
 /**-------------------------------------------------------------------------------------------------
@@ -48,12 +47,15 @@ if ($mode == "save") {
   登録
 ------------------------------------------------------------------------------------------------*/
 
-  //$post_key         = $_POST["post_key"];
-  // $input_map        = $_SESSION["input_map"];
-  // $_SESSION["mode"] = $mode;
+  $user_map["shain_id"] = $_SESSION["login_map"]["shain_id"];
+
+  // 戻った時に入力情報をセッションから取得
+  $input_map = $_SESSION["input_map"];
+  $smarty->assign("user_map", $user_map);
+  $smarty->assign("input_map", $input_map);
 
   $input_map            = null;
-  $input_map["shain_id"]   = rand(4, 6);
+  $input_map["shain_id"]  = $user_map["shain_id"];
   $input_map["title"]   = $_POST["title"];
   $input_map["body"]    = $_POST["body"];
   $input_map["approval_flag"] = 0;
@@ -73,7 +75,7 @@ if ($mode == "save") {
     $idea_list = $dbFunctions->getListIncludeMap($sql);
 
     $smarty->assign("idea_list", $idea_list);
-    $smarty->display(TEMPLATE_DIR."/idea_box_tpl/idea_top.tpl");
+    $smarty->display(TEMPLATE_DIR."/idea_top.tpl");
     exit();
 
   } else {
@@ -86,7 +88,7 @@ if ($mode == "save") {
     $idea_list = $dbFunctions->getListIncludeMap($sql);
 
     $smarty->assign("idea_list", $idea_list);
-    $smarty->display(TEMPLATE_DIR."/idea_box_tpl/idea_completion.tpl");
+    $smarty->display(TEMPLATE_DIR."/idea_completion.tpl");
     exit();
   }
 
@@ -144,13 +146,13 @@ function input_check($input_map) {
   // タイトル
   if (!strlen($input_map["title"])) {
     $error_map["title"] = "タイトルを入力してください。";
-  } else if (mb_strlen($input_map["title"]) > 50) {
+  } else if (mb_strlen($input_map["title"]) > 80) {
     $error_map["title"] = "タイトルが長すぎます。";
   }
   // 内容
   if (!strlen($input_map["body"])) {
     $error_map["body"] = "内容を入力してください。";
-  } else if (mb_strlen($input_map["body"]) > 200) {
+  } else if (mb_strlen($input_map["body"]) > 400) {
     $error_map["body"] = "内容が長すぎます。";
   }
   if (is_array($error_map)) {

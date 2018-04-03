@@ -6,7 +6,9 @@ ini_set( 'error_reporting', E_ALL );
 
 error_reporting(E_ALL & ~E_NOTICE);
 
-require_once("../admin/_module/requires.php");
+// 設定に関するファイルを読み込む。
+require_once("./admin/_module/requires.php");
+// require_once("./login_check.php");
 
 mb_language("Japanese");
 mb_internal_encoding("utf-8");
@@ -144,12 +146,19 @@ foreach ($ms_shain as $key => $shain_para) {
   }
 }
 
+foreach ((array) $shain_idea_count as $key => $value) {
+    $sort[$key] = $value['idea_count'];
+}
+
+array_multisort($sort, SORT_DESC, $shain_idea_count);
+
+
 $smarty->assign('shain_idea_count', $shain_idea_count);
 // リストに表示するためアサイン
 // $smarty->assign("ms_shain", $ms_shain);
 // $smarty->assign("idea_list", $idea_list);
 // $smarty->assign("page", $page);
-$smarty->display(TEMPLATE_DIR."/idea_box_tpl/idea_total.tpl");
+$smarty->display(TEMPLATE_DIR."/idea_total.tpl");
 exit();
 
 /**-------------------------------------------------------------------------------------------------
@@ -165,11 +174,11 @@ function getSqlMsShain() {
   $sql.= "namae ";
   $sql.= "FROM ";
   $sql.= "ms_shain ";
-  $sql.= " ORDER BY shain_id asc ";
+  $sql.= "WHERE ";
+  $sql.= "status_id = '0'";
+  $sql.= " ORDER BY insert_datetime DESC ";
   return $sql;
 }
-
-
 
 
 function getSqlSelectIdea($arg_map) {
@@ -207,7 +216,7 @@ function getSqlSelectIdeaGroupBy($arg_map) {
   } else if (strlen($arg_map["insert_datetime_2"])) {
     $sql.= " insert_datetime <= '" . mysql_escape_string($arg_map["insert_datetime_2"]). " 23:59:59'AND ";
   }
-  $sql.= "  delete_flag = '0' ";
+  $sql.= " delete_flag = '0' ";
   $sql.= "Group by shain_id";
 
   return $sql;

@@ -7,7 +7,12 @@
 <html>
 <html>
   <head>
-    {include file="idea_box_tpl/_header.tpl"}
+    <title>アイデアBOX｜フジボウル</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="css/idea_css/idea_main.css" />
+    <link rel="stylesheet" href="css/idea_css/noscript.css" /></noscript>
+    <link rel="stylesheet" href="js/idea_js/idea_js/jquery.min.js"></script>
   </head>
 <body class="is-loading">
     <!-- Wrapper -->
@@ -19,8 +24,8 @@
           <!-- Nav -->
             <nav id="nav">
               <ul class="links">
-                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_top.php">投稿ページ</a></li>
-                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_list.php">アイデア一覧</a></li>
+                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_top.php">投稿ページ</a></li>
+                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_list.php">アイデア一覧</a></li>
               </ul>
             </nav>
         <!-- Footer -->

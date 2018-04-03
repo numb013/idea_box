@@ -1,7 +1,7 @@
 <?php /* Smarty version 2.6.9, created on 2018-03-29 15:35:04
-         compiled from /var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl */ ?>
+         compiled from /var/www/html/data/idea_box/templates/idea_top.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl', 34, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl', 57, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_box_tpl/idea_top.tpl', 58, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_top.tpl', 34, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_top.tpl', 57, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_top.tpl', 58, false),)), $this); ?>
 <!DOCTYPE HTML>
 <!--
   Massively by HTML5 UP

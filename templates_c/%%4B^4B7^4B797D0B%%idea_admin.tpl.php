@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-29 12:56:34
+<?php /* Smarty version 2.6.9, created on 2018-04-03 18:21:52
          compiled from /var/www/html/data/idea_box/templates/idea_admin.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', '/var/www/html/data/idea_box/templates/idea_admin.tpl', 56, false),array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_admin.tpl', 62, false),array('modifier', 'truncate', '/var/www/html/data/idea_box/templates/idea_admin.tpl', 85, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_admin.tpl', 86, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('function', 'html_options', '/var/www/html/data/idea_box/templates/idea_admin.tpl', 53, false),array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_admin.tpl', 59, false),array('modifier', 'mb_truncate', '/var/www/html/data/idea_box/templates/idea_admin.tpl', 82, false),array('modifier', 'date_format', '/var/www/html/data/idea_box/templates/idea_admin.tpl', 90, false),)), $this); ?>
 <!DOCTYPE HTML>
 <!--
   Massively by HTML5 UP
@@ -10,24 +10,22 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
 -->
 <html>
   <head>
-    <title>Massively by HTML5 UP</title>
+    <title>アイデアBOX｜フジボウル</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="./css/idea_main.css" />
-    <noscript><link rel="stylesheet" href="./css/noscript.css" /></noscript>
-  <script type="text/javascript" src="./js/jquery.min.js"></script>
-  <script type="text/javascript" src="./js/jquery-ui.js"></script>
-  <script type="text/javascript" src="./js/jquery.ui.datepicker-ja.min.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-
-  <script>
-    $(function() {
-      $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
-      $( "#datepicker1" ).datepicker();
-      $( "#datepicker2" ).datepicker();
-    });
-  </script>
-
+    <link rel="stylesheet" type="text/css" href="css/idea_css/idea_main.css" />
+    <noscript><link rel="stylesheet" href="css/idea_css/noscript.css" /></noscript>
+    <script type="text/javascript" src="js/idea_js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/idea_js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/idea_js/jquery.ui.datepicker-ja.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/idea_css/jquery-ui.css" />
+    <script>
+      $(function() {
+        $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+        $( "#datepicker1" ).datepicker();
+        $( "#datepicker2" ).datepicker();
+      });
+    </script>
   </head>
 <body class="is-loading">
     <!-- Wrapper -->
@@ -45,7 +43,7 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
 /idea_list.php">アイデア一覧</a></li>
                 <li class='active'><a href="<?php echo @URL_ROOT_HTTPS; ?>
 /idea_admin.php">管理画面</a></li>
-                <li class='active'><a href="<?php echo @URL_ROOT_HTTPS; ?>
+                <li><a href="<?php echo @URL_ROOT_HTTPS; ?>
 /idea_total.php">集計</a></li>
               </ul>
             </nav>
@@ -55,11 +53,6 @@ smarty_core_load_plugins(array('plugins' => array(array('function', 'html_option
               <section class="contact">
                 <h3>アイデア一覧検索</h3>
                 <div class="search_box">
-                  <?php $_smarty_tpl_vars = $this->_tpl_vars;
-$this->_smarty_include(array('smarty_include_tpl_file' => "admin/_error_msg.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
                   <form action="<?php echo @URL_ROOT_HTTPS; ?>
 /idea_admin.php" method="post" enctype="multipart/form-data">
                     <table class="form" width="90%">
@@ -104,13 +97,20 @@ unset($_smarty_tpl_vars);
                     <section>
                       <h3 class="under_line">・<?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['title'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
 </h3>
-                      <p><?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['body'])) ? $this->_run_mod_handler('truncate', true, $_tmp, 100, '...') : smarty_modifier_truncate($_tmp, 100, '...')); ?>
+                      <p><?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['body'])) ? $this->_run_mod_handler('mb_truncate', true, $_tmp, 100, '...') : smarty_modifier_mb_truncate($_tmp, 100, '...')); ?>
 </p>
+                     <p>
+                        <?php if (( $this->_tpl_vars['idea_map']['approval_flag'] == 1 )): ?>
+                          <span style="color:#f00">●承認済み</span>
+                        <?php else: ?>
+                          ×未承認
+                        <?php endif; ?>
+                      </p>
                       <p class="date"><?php echo ((is_array($_tmp=((is_array($_tmp=$this->_tpl_vars['idea_map']['insert_datetime'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)))) ? $this->_run_mod_handler('date_format', true, $_tmp, "%Y-%m-%d") : smarty_modifier_date_format($_tmp, "%Y-%m-%d")); ?>
-</p>   
-                        <p><a href="<?php echo @URL_ROOT_HTTPS; ?>
+</p>
+                      <p><a href="<?php echo @URL_ROOT_HTTPS; ?>
 /idea_edit.php?id=<?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['id'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-">編集</a></p>
+&status=admin_edit">編集</a></p>
                     </section>
                   </a>
                 </div>
@@ -130,12 +130,5 @@ unset($_smarty_tpl_vars);
             </footer>
           </section>
           </div>
-
-    <!-- Scripts -->
-    <script type="text/javascript" src="./js/jquery.scrollex.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.scrolly.min.js"></script>
-    <script type="text/javascript" src="./js/skel.min.js"></script>
-    <script type="text/javascript" src="./js/util.js"></script>
-    <script type="text/javascript" src="./js/main.js"></script>
   </body>
 </html>

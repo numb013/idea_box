@@ -6,7 +6,22 @@
 -->
 <html>
   <head>
-    {include file="idea_box_tpl/_header.tpl"}
+    <title>アイデアBOX｜フジボウル</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" type="text/css" href="css/idea_css/idea_main.css" />
+    <noscript><link rel="stylesheet" href="css/idea_css/noscript.css" /></noscript>
+    <script type="text/javascript" src="js/idea_js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/idea_js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/idea_js/jquery.ui.datepicker-ja.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/idea_css/jquery-ui.css" />
+    <script>
+      $(function() {ldelim}
+        $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+        $( "#datepicker1" ).datepicker();
+        $( "#datepicker2" ).datepicker();
+      {rdelim});
+    </script>
   </head>
 <body class="is-loading">
     <!-- Wrapper -->
@@ -18,10 +33,10 @@
           <!-- Nav -->
             <nav id="nav">
               <ul class="links">
-                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_top.php">投稿ページ</a></li>
-                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_list.php">アイデア一覧</a></li>
-                <li class='active'><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_admin.php">管理画面</a></li>
-                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_total.php">集計</a></li>
+                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_top.php">投稿ページ</a></li>
+                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_list.php">アイデア一覧</a></li>
+                <li class='active'><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_admin.php">管理画面</a></li>
+                <li><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_total.php">集計</a></li>
               </ul>
             </nav>
         <!-- Footer -->
@@ -30,7 +45,7 @@
               <section class="contact">
                 <h3>アイデア一覧検索</h3>
                 <div class="search_box">
-                  <form action="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_admin.php" method="post" enctype="multipart/form-data">
+                  <form action="{$smarty.const.URL_ROOT_HTTPS}/idea_admin.php" method="post" enctype="multipart/form-data">
                     <table class="form" width="90%">
                       <tr>
                         <th class="ken">社員</th>
@@ -61,10 +76,10 @@
 
               {foreach item="idea_map" from=$idea_list}
                 <div class="list_box">
-                  <a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_detail.php?id={$idea_map.id|escape}">
+                  <a href="{$smarty.const.URL_ROOT_HTTPS}/idea_detail.php?id={$idea_map.id|escape}">
                     <section>
                       <h3 class="under_line">・{$idea_map.title|escape}</h3>
-                      <p>{$idea_map.body|truncate:100:'...'}</p>
+                      <p>{$idea_map.body|mb_strimwidth:0:100:'...'}</p>
                      <p>
                         {if ($idea_map.approval_flag == 1)}
                           <span style="color:#f00">●承認済み</span>
@@ -73,7 +88,7 @@
                         {/if}
                       </p>
                       <p class="date">{$idea_map.insert_datetime|escape|date_format:"%Y-%m-%d"}</p>
-                      <p><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_box_php/idea_edit.php?id={$idea_map.id|escape}">編集</a></p>
+                      <p><a href="{$smarty.const.URL_ROOT_HTTPS}/idea_edit.php?id={$idea_map.id|escape}&status=admin_edit">編集</a></p>
                     </section>
                   </a>
                 </div>
@@ -91,11 +106,5 @@
             </footer>
           </section>
           </div>
-    <!-- Scripts -->
-    <script type="text/javascript" src="../js/jquery.scrollex.min.js"></script>
-    <script type="text/javascript" src="../js/jquery.scrolly.min.js"></script>
-    <script type="text/javascript" src="../js/skel.min.js"></script>
-    <script type="text/javascript" src="../js/util.js"></script>
-    <script type="text/javascript" src="../js/main.js"></script>
   </body>
 </html>

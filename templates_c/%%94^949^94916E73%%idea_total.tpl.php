@@ -1,7 +1,7 @@
-<?php /* Smarty version 2.6.9, created on 2018-03-29 14:28:35
+<?php /* Smarty version 2.6.9, created on 2018-04-02 17:14:05
          compiled from /var/www/html/data/idea_box/templates/idea_total.tpl */ ?>
 <?php require_once(SMARTY_CORE_DIR . 'core.load_plugins.php');
-smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_total.tpl', 56, false),)), $this); ?>
+smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/var/www/html/data/idea_box/templates/idea_total.tpl', 53, false),)), $this); ?>
 <!DOCTYPE HTML>
 <!--
   Massively by HTML5 UP
@@ -10,24 +10,22 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/
 -->
 <html>
   <head>
-    <title>Massively by HTML5 UP</title>
+    <title>アイデアBOX｜フジボウル</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="./css/idea_main.css" />
-    <noscript><link rel="stylesheet" href="./css/noscript.css" /></noscript>
-  <script type="text/javascript" src="./js/jquery.min.js"></script>
-  <script type="text/javascript" src="./js/jquery-ui.js"></script>
-  <script type="text/javascript" src="./js/jquery.ui.datepicker-ja.min.js"></script>
-  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-
-  <script>
-    $(function() {
-      $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
-      $( "#datepicker1" ).datepicker();
-      $( "#datepicker2" ).datepicker();
-    });
-  </script>
-
+    <link rel="stylesheet" type="text/css" href="css/idea_css/idea_main.css" />
+    <noscript><link rel="stylesheet" href="css/idea_css/noscript.css" /></noscript>
+    <script type="text/javascript" src="js/idea_js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/idea_js/jquery-ui.js"></script>
+    <script type="text/javascript" src="js/idea_js/jquery.ui.datepicker-ja.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/idea_css/jquery-ui.css" />
+    <script>
+      $(function() {
+        $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+        $( "#datepicker1" ).datepicker();
+        $( "#datepicker2" ).datepicker();
+      });
+    </script>
   </head>
 <body class="is-loading">
     <!-- Wrapper -->
@@ -55,11 +53,6 @@ smarty_core_load_plugins(array('plugins' => array(array('modifier', 'escape', '/
               <section class="contact">
                 <h3>修正検索</h3>
                 <div class="search_box">
-                  <?php $_smarty_tpl_vars = $this->_tpl_vars;
-$this->_smarty_include(array('smarty_include_tpl_file' => "admin/_error_msg.tpl", 'smarty_include_vars' => array()));
-$this->_tpl_vars = $_smarty_tpl_vars;
-unset($_smarty_tpl_vars);
- ?>
                   <form action="<?php echo @URL_ROOT_HTTPS; ?>
 /idea_total.php" method="post" enctype="multipart/form-data">
                     <table class="form" width="90%">
@@ -86,25 +79,22 @@ unset($_smarty_tpl_vars);
     foreach ($_from as $this->_tpl_vars['shain_idea_count_map']):
 ?>
                 <div class="list_box">
-                  <a href="<?php echo @URL_ROOT_HTTPS; ?>
-/idea_detail.php?id=<?php echo ((is_array($_tmp=$this->_tpl_vars['idea_map']['id'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
-">
+                  <a href="#">
                     <section>
-                      <h3 class="under_line">件数:<?php echo ((is_array($_tmp=$this->_tpl_vars['shain_idea_count_map']['idea_count'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
+                        <?php if (( $this->_tpl_vars['shain_idea_count_map']['idea_count'] == '0' )): ?>
+                          <h3 class="under_line">
+                        <?php else: ?>
+                          <h3 class="under_line" style="color:#f00;">
+                        <?php endif; ?>
+                      件数:<?php echo ((is_array($_tmp=$this->_tpl_vars['shain_idea_count_map']['idea_count'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
  <?php echo ((is_array($_tmp=$this->_tpl_vars['shain_idea_count_map']['name'])) ? $this->_run_mod_handler('escape', true, $_tmp) : smarty_modifier_escape($_tmp)); ?>
- </h3>
+ 
+                      </h3>
                     </section>
                   </a>
                 </div>
               <?php endforeach; endif; unset($_from); ?>
             </section>
           </footer>
-
-    <!-- Scripts -->
-    <script type="text/javascript" src="./js/jquery.scrollex.min.js"></script>
-    <script type="text/javascript" src="./js/jquery.scrolly.min.js"></script>
-    <script type="text/javascript" src="./js/skel.min.js"></script>
-    <script type="text/javascript" src="./js/util.js"></script>
-    <script type="text/javascript" src="./js/main.js"></script>
   </body>
 </html>
